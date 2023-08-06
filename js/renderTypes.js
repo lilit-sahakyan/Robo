@@ -1,3 +1,14 @@
+import * as THREE from "three";
+import {
+  spotLight1,
+  spotLight2,
+  spotLight3,
+  spotLight4,
+  torsoMesh,
+  shirtMesh,
+  pantsMesh,
+} from "./scene.js";
+
 export function setupRenderTypes() {
   const textureRender = document.getElementById("texture");
   const lighting1Render = document.getElementById("lighting1");

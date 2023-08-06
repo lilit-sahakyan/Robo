@@ -1,18 +1,19 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { TrackballControls } from "three/addons/controls/TrackballControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import {orbit, orbit2} from "./controls.js"; // Import Controls
 
-
+// Export Objects
 export let renderer;
 export let scene;
-export let orbit;
-export let orbit2;
+export let camera;
 export let ambientLight;
 export let spotLight1;
 export let spotLight2;
 export let spotLight3;
 export let spotLight4;
+export let torsoMesh;
+export let shirtMesh;
+export let pantsMesh;
 
 
 export function initScene() {
@@ -22,7 +23,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.antialias = true;
 document.body.appendChild(renderer.domElement);
 renderer.shadowMap.enabled = true;
-const camera = new THREE.PerspectiveCamera(
+camera = new THREE.PerspectiveCamera(
   60,
   window.innerWidth / window.innerHeight,
   0.1,
@@ -31,24 +32,6 @@ const camera = new THREE.PerspectiveCamera(
 
 // Controls
 scene = new THREE.Scene();
-orbit = new OrbitControls(camera, renderer.domElement);
-orbit2 = new TrackballControls(camera, renderer.domElement);
-
-camera.position.set(-0.5, 1.7, 3.5);
-orbit.maxDistance = 7;
-orbit.minDistance = 0.7;
-orbit.target.set(0, 0.7, 0);
-orbit.enablePan = false;
-orbit.enableDamping = true;
-orbit.dampingFactor = 0.12;
-orbit.enableZoom = false;
-
-orbit2.noRotate = true;
-orbit2.noPan = true;
-orbit2.noZoom = false;
-orbit2.zoomSpeed = 1.5;
-
-orbit.update();
 
 renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 
@@ -81,9 +64,6 @@ THREE.ColorManagement.enabled = true;
 let torsoMaterial = "";
 let shirtMaterial = "";
 let pantsMaterial = "";
-let torsoMesh;
-let shirtMesh;
-let pantsMesh;
 // Torso
 loader.load(
   "../models/torso.glb",

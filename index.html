@@ -10,7 +10,7 @@
 
             gtag('config', 'G-F8M63TX2SY');
         </script>
-        <title>Dripzels</title>
+        <title>• Dripzels •</title>
         <meta content="Dripzels | Roblox clothing preview" property="og:title" />
         <meta content="Free roblox clothing preview. Everything is client sided, we do not store anything. Made by @dori7os (aka @SpaceDoritos). You can dm me on discord if you want me to add a feature to the website." property="og:description" />
         <meta content="https://dripzels.netlify.app/" property="og:url" />
@@ -33,37 +33,83 @@
                 }
             }
         </script>
-        <script>
-            function closeErr(){
-                document.getElementById('errorMenu').style.display = 'none'
-            }
-            
-        </script>
 
         <!-- My Scripts -->
         <script src="js/index.js" type="module"></script>
+        <script src="js/activeFunctions.js" type="module"></script>
+        <script src="js/UX.js" type="module"></script>
     </head>
     <body>
+
+        <!-- Audios 📌 -->
+        <audio id="welcomeAudio"> <source src="audios/welcome.wav" type="audio/wav"> </audio>
+        <audio id="welcomeBackAudio"> <source src="audios/welcomeBack.wav" type="audio/wav"> </audio>
+
           
+        <div class="bottomBar">
+            <p style="margin-left: 1em;">Made with ❤️ by <a href="http://spacedorito.xyz/" target="_blank">@SpaceDoritos</a></p>
+            <p style="margin-right: 1em; text-decoration: underline; cursor: pointer; display: flex; justify-content: center; align-items: center;" id="version">
+                <img src="css/icons/info.png" alt="info" width="17em" style="opacity: .7; margin-right: .2em;">
+                Dripzels v<span id="clientVersion">1.0</span>
+            </p>
+        </div>
 
         <div id="errorMenu">
-            <div class="margin5">
-                <h1>An error occured
-                    <!-- <?xml version="1.0" ?><svg enable-background="new 0 0 24 24" id="Stock_cut" version="1.1" viewBox="0 0 255 255" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><desc/><g><circle cx="16" cy="16" fill="none" r="15" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2"/><line fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="16" x2="16" y1="24" y2="26"/><line fill="none" stroke="#000000" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" x1="16" x2="16" y1="22" y2="6"/></g></svg> -->
-                </h1>
-                <span class="material-symbols-sharp closeButton" style="left: 98%; top: 3%; cursor: pointer;" onclick="closeErr()">close</span>
+            <div class="errorPart">
+                <div>
+                    <h1>An error occured</h1>
+                
+                    <button onclick="document.getElementById('errorMenu').classList.remove('open')">esc</button>
+                </div>
                 <hr>
                 <p id="errorMessage">Woah, you shouldn't be seeing this, an error within an error!</p>
             </div>
         </div>
-        <p id="creds">Made by @<span class="underline">dori7os</span> aka @<span class="underline">SpaceDorito</span> </p>
+    
+    <!-- Popup menus 📌 -->
+    <div class="popupContainer" id="popupContainer">
+        <div class="popupMenu">
+        <div class="popupMenuTitle">
+            <h1 id="popupMenuTitle">Title</h1>
+            <button id="closePopup">(esc)</button>
+        </div>
+        <hr style="width: 100%; border: none; border-top: 1px solid rgba(255, 255, 255, 0.3);">
+        <div class="popupMenuContainer">
+            
+            <div id="menu2D" class="menuContent">
+                <p>If the layering is messed up, please reset the clothing and upload the pants first.</p>
+                <img id="image2D" src="images/2DPreview.png">
+                <div class="menuButton" id="download2D">
+                    <h1>Download</h1>
+                </div>
+            </div>
+            
+            <div id="updateLog" class="menuContent">
+                <div style="width: 100%; display: flex; align-items: center; flex-direction: column;">
+                    <h2 style="margin: 0;">Dripzels</h2>
+                    <h6 style="margin: 1em; font-weight: 200;">Dripzels v1.0 - 1/9/23</h6>
+                    <hr style="width: 90%; border: none; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+                </div>
+                <p>
+                    - Fixed clothing layering.<br> <br>
+                    - Added Drag and Drop.<br> <br>
+                    - Added update logs.<br> <br>
+                    - Made the <a href="https://github.com/SpaceDoritos/Dripzels" target="_blank">code</a> open source.<br> <br>
+                    - Organized the files. (backend stuff that yall don't care about)<br> <br>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
         <div class="menu" id="menuElement">
-            <div class="uploadButton" id="shirtButton" style="border-radius: 12px 0px 0px 12px; border-right: .5px solid rgba(255, 255, 255, 0.1);">
+            <div class="uploadButton" onclick="shirtUpload.click();" id="shirtButton" style="border-radius: 12px 0px 0px 12px; border-right: .5px solid rgba(255, 255, 255, 0.1);">
                 <svg fill="none" height="70%" stroke-width="12" viewBox="0 0 256 256" width="70%" xmlns="http://www.w3.org/2000/svg"><path d="M192,120h27.1a7.9,7.9,0,0,0,7.1-4.4l18.4-36.8a8.1,8.1,0,0,0-3.2-10.6L192,40" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M64,120H36.9a7.9,7.9,0,0,1-7.1-4.4L11.4,78.8a8.1,8.1,0,0,1,3.2-10.6L64,40" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M160,40a32,32,0,0,1-64,0H64V208a8,8,0,0,0,8,8H184a8,8,0,0,0,8-8V40Z" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/></svg>                  
             </div>
             <input type="file" id="shirtUpload" accept=".png, .jpeg, .jpg">
-            <div class="uploadButton" id="pantsButton" style="border-radius: 0px 12px 12px 0px; border-left: .5px solid rgba(255, 255, 255, 0.1);">
+            <div class="uploadButton" onclick="pantsUpload.click();" id="pantsButton" style="border-radius: 0px 12px 12px 0px; border-left: .5px solid rgba(255, 255, 255, 0.1);">
                 <?xml version="1.0" ?><svg fill="none" height="70%" stroke-width="1.52" viewBox="0 0 24 24" width="70%" xmlns="http://www.w3.org/2000/svg"><path d="M5.03518 3.63328C5.01608 3.28936 5.28981 3 5.63426 3H18.3657C18.7102 3 18.9839 3.28936 18.9648 3.63328L18.0315 20.4333C18.0138 20.7512 17.7508 21 17.4324 21H14.5335C14.2293 21 13.9732 20.7723 13.9377 20.4701L12.5959 9.06507C12.5128 8.35854 11.4872 8.35854 11.4041 9.06507L10.0623 20.4701C10.0268 20.7723 9.7707 21 9.46645 21H6.56759C6.24915 21 5.98618 20.7512 5.96852 20.4333L5.03518 3.63328Z" stroke-width="1.2"/><path d="M5 7.5H6.5C7.60457 7.5 8.5 6.60457 8.5 5.5V3" stroke-width="1.52"/><path d="M18.5 7.5H17.5C16.3954 7.5 15.5 6.60457 15.5 5.5V3" stroke-width="1.2"/></svg>
             </div>
             <input type="file" id="pantsUpload" accept=".png, .jpeg, .jpg">
@@ -93,20 +139,16 @@
             <span class="tooltipText">Reset Clothing</span>
             <?xml version="1.0" ?><svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.78033 2.71967C7.07322 3.01256 7.07322 3.48744 6.78033 3.78033L4.56066 6H13.25C17.5302 6 21 9.46979 21 13.75C21 18.0302 17.5302 21.5 13.25 21.5C8.96979 21.5 5.5 18.0302 5.5 13.75C5.5 13.3358 5.83579 13 6.25 13C6.66421 13 7 13.3358 7 13.75C7 17.2018 9.79822 20 13.25 20C16.7018 20 19.5 17.2018 19.5 13.75C19.5 10.2982 16.7018 7.5 13.25 7.5H4.56066L6.78033 9.71967C7.07322 10.0126 7.07322 10.4874 6.78033 10.7803C6.48744 11.0732 6.01256 11.0732 5.71967 10.7803L2.21967 7.28033C1.92678 6.98744 1.92678 6.51256 2.21967 6.21967L5.71967 2.71967C6.01256 2.42678 6.48744 2.42678 6.78033 2.71967Z" fill="#fff"/></svg>
         </div>
-
-        <div class="mainMenu" id="mainMenu">
-                <svg id="closeMainMenu" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/></svg>
-                <div id="menu2D">
-                    <p style="max-width: 70%; color: rgb(200, 200, 200);">For best results, please reset the clothing with the 
-            <?xml version="1.0" ?><svg fill="none" height="100%" style="margin-bottom: -1%;" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.78033 2.71967C7.07322 3.01256 7.07322 3.48744 6.78033 3.78033L4.56066 6H13.25C17.5302 6 21 9.46979 21 13.75C21 18.0302 17.5302 21.5 13.25 21.5C8.96979 21.5 5.5 18.0302 5.5 13.75C5.5 13.3358 5.83579 13 6.25 13C6.66421 13 7 13.3358 7 13.75C7 17.2018 9.79822 20 13.25 20C16.7018 20 19.5 17.2018 19.5 13.75C19.5 10.2982 16.7018 7.5 13.25 7.5H4.56066L6.78033 9.71967C7.07322 10.0126 7.07322 10.4874 6.78033 10.7803C6.48744 11.0732 6.01256 11.0732 5.71967 10.7803L2.21967 7.28033C1.92678 6.98744 1.92678 6.51256 2.21967 6.21967L5.71967 2.71967C6.01256 2.42678 6.48744 2.42678 6.78033 2.71967Z" fill="#fff"/></svg>
-                        button <span class="bold">first</span> then upload your pants <span class="bold">before</span> uploading the shirt.
-                    </p>
-                    <img id="image2D" src="images/2DPreview.png">
-                    <div class="menuButton" id="download2D">
-                        <h1>Download</h1>
-                    </div>
-                </div>
         </div>
 
+    <section id="Drop-backdrop" class="hidden">
+        <div id="shirtDrop" class="dropOption" style="border-right: 1px solid rgba(255, 255, 255, 0.3);">
+            <svg fill="none" height="70%" stroke-width="12" viewBox="0 0 256 256" width="70%" xmlns="http://www.w3.org/2000/svg"><path d="M192,120h27.1a7.9,7.9,0,0,0,7.1-4.4l18.4-36.8a8.1,8.1,0,0,0-3.2-10.6L192,40" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M64,120H36.9a7.9,7.9,0,0,1-7.1-4.4L11.4,78.8a8.1,8.1,0,0,1,3.2-10.6L64,40" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/><path d="M160,40a32,32,0,0,1-64,0H64V208a8,8,0,0,0,8,8H184a8,8,0,0,0,8-8V40Z" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="12"/></svg>                  
+        </div>
+        <div id="pantsDrop" class="dropOption" style="border-left: 1px solid rgba(255, 255, 255, 0.3);">
+            <?xml version="1.0" ?><svg fill="none" height="70%" stroke-width="1.52" viewBox="0 0 24 24" width="70%" xmlns="http://www.w3.org/2000/svg"><path d="M5.03518 3.63328C5.01608 3.28936 5.28981 3 5.63426 3H18.3657C18.7102 3 18.9839 3.28936 18.9648 3.63328L18.0315 20.4333C18.0138 20.7512 17.7508 21 17.4324 21H14.5335C14.2293 21 13.9732 20.7723 13.9377 20.4701L12.5959 9.06507C12.5128 8.35854 11.4872 8.35854 11.4041 9.06507L10.0623 20.4701C10.0268 20.7723 9.7707 21 9.46645 21H6.56759C6.24915 21 5.98618 20.7512 5.96852 20.4333L5.03518 3.63328Z" stroke-width="1.2"/><path d="M5 7.5H6.5C7.60457 7.5 8.5 6.60457 8.5 5.5V3" stroke-width="1.52"/><path d="M18.5 7.5H17.5C16.3954 7.5 15.5 6.60457 15.5 5.5V3" stroke-width="1.2"/></svg>
+        </div>
+    </section>
+    
     </body>
 </html>

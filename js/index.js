@@ -1,9 +1,16 @@
-import { initScene } from "./scene.js";
-// import { setupControls } from "./controls.js";
-// import { setupImageProcessing } from "./imageProcessing.js";
-import { setupRenderTypes } from "./renderTypes.js";
+// Initial website setup
+import { initScene } from "./scene.js"; // Setup the scene
+import { setupControls } from "./controls.js"; // Setup use controls
+import { setupRenderTypes } from "./renderTypes.js"; // Setup Render types
 
 initScene();
-// setupControls();
-// setupImageProcessing();
+setupControls();
 setupRenderTypes();
+
+// Backend functions 📌
+
+// Error 
+export function sendError(error) {
+  document.getElementById("errorMessage").innerHTML = error;
+  document.getElementById("errorMenu").classList.add('open');
+}
