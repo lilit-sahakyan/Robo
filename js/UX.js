@@ -1,7 +1,7 @@
 import { openMenu } from "./activeFunctions.js";
 
 // Version check 📌
-const dripzelsVersion = '1.0';
+const dripzelsVersion = '1.11';
 let firstTime = false;
 let welcomed = false;
 

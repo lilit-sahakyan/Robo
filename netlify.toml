@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://dripzels.netlify.app"
+  to = "https://dripzels.spacedorito.xyz"
+  status = 301
+  force = true

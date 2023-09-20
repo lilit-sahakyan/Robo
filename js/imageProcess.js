@@ -132,9 +132,9 @@ export function draw2D(type, image, drawShirt, currentHands) {
     img.src = image.src;
     img.addEventListener("load", () => {
       if (type == "shirt") {
-        draw(img,skin,231,74,231+128,74+128,168,69,(skin)=>{draw(img,skin,217,355,217+64,355+128,104,69,(skin)=>{draw(img,skin,308,355,308+64,355+128,296,69,(skin)=>{draw(img,skin,427,74,427+128,74+128,453,69,(skin)=>{draw(img,skin,85,355,85+64,355+128,389,69,(skin)=>{draw(img,skin,440,355,440+64,355+128,581,69,(skin)=>{draw(img,skin,151,355,151+64,355+128,25,69,(skin)=>{draw(img,skin,374,355,374+64,355+128,660,69,(skin)=>{})})})})})})})});
+        draw(img,skin,231,74,231+128,74+128,168,69,(skin)=>{draw(img,skin,217,355,217+64,355+128,104,69,(skin)=>{draw(img,skin,308,355,308+64,355+128,296,69,(skin)=>{draw(img,skin,427,74,427+128,74+128,453,69,(skin)=>{draw(img,skin,85,355,85+64,355+128,581,69,(skin)=>{draw(img,skin,440,355,440+64,355+128,389,69,(skin)=>{draw(img,skin,151,355,151+64,355+128,25,69,(skin)=>{draw(img,skin,374,355,374+64,355+128,660,69,(skin)=>{})})})})})})})});
       } else if (type == "pants") {
-        draw(img,skin,231,74,231+128,74+128,168,69,(skin)=>{draw(img,skin,217,355,217+64,355+128,104+64,197,(skin)=>{draw(img,skin,308,355,308+64,355+128,296-64,197,(skin)=>{draw(img,skin,427,74,427+128,74+128,453,69,(skin)=>{draw(img,skin,85,355,85+64,355+128,389+64,197,(skin)=>{draw(img,skin,440,355,440+64,355+128,581-64,197,(skin)=>{draw(img,skin,151,355,151+64,355+128,25,197,(skin)=>{draw(img,skin,374,355,374+64,355+128,660,197,(skin)=>{})})})})})})})});
+        draw(img,skin,231,74,231+128,74+128,168,69,(skin)=>{draw(img,skin,217,355,217+64,355+128,104+64,197,(skin)=>{draw(img,skin,308,355,308+64,355+128,296-64,197,(skin)=>{draw(img,skin,427,74,427+128,74+128,453,69,(skin)=>{draw(img,skin,85,355,85+64,355+128,581-64,197,(skin)=>{draw(img,skin,440,355,440+64,355+128,389+64,197,(skin)=>{draw(img,skin,151,355,151+64,355+128,25,197,(skin)=>{draw(img,skin,374,355,374+64,355+128,660,197,(skin)=>{})})})})})})})});
       }
     });
   });
