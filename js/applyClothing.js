@@ -1,7 +1,8 @@
 import * as THREE from "three";
 import { sendError } from "./index.js";
-import { pantsMesh, shirtMesh, torsoMesh } from "./scene.js";
+import { legsMesh, handsMesh, torsoMesh, scene } from "./scene.js";
 import { addSkin, draw2D, drawTorso } from "./imageProcess.js";
+import { Man_handsMesh, Man_legsMesh, Man_torsoMesh, Woman_torsoMesh, Woman_handsMesh, Woman_legsMesh ,currentBodyType } from "./renderTypes.js";
 
 
 // Common variables
@@ -9,7 +10,7 @@ const shirtButton = document.getElementById("shirtButton");
 const shirtUpload = document.getElementById("shirtUpload");
 const pantsButton = document.getElementById("pantsButton");
 const pantsUpload = document.getElementById("pantsUpload");
-let defaultShirt = true;
+export let defaultShirt = true;
 export let reset = false;
 let processedShirt;
 let currentHands = new Image(); currentHands.src = "../images/baseShirt.png";
@@ -26,15 +27,12 @@ export function resetClothing(changed) {
     currentHands.src = "../images/baseShirt.png";
     currentLegs.src = "../images/basePants.png";
     currentTorso.src = "../images/baseShirt.png";
-    uploadHandler(currentLegs, 'pants', true);
-    changeClothing('legs', currentLegs)
-    changeClothing('torso', currentTorso)
+    // uploadHandler(currentLegs, 'pants', true);
     changeClothing('hands', currentHands)
+    changeClothing('torso', currentTorso)
+    changeClothing('legs', currentLegs)
     defaultShirt = true;
-    setTimeout(() => {
-      document.getElementById('image2D').src = "../images/2DPreview.png"
-    }, 1000);
-
+    document.getElementById('image2D').src = "../images/2DPreview.png"
 }
 
 export function uploadHandler(file, type) {
@@ -46,18 +44,18 @@ export function uploadHandler(file, type) {
         processedShirt = result;
         if (reset == false){defaultShirt = false;}
         shirtUpload.value = null;
-        draw2D('shirt', currentHands)
+        draw2D('shirt', clothingImg)
       } else if (type == "pants") {
         currentLegs = result;
         pantsUpload.value = null;
         if (defaultShirt == false){
-            draw2D('pants', currentLegs);
+            draw2D('pants', clothingImg);
             setTimeout(() => {
               draw2D('shirt', currentHands);
             }, 1000);
           
         } else{
-          draw2D('pants', currentLegs)
+          draw2D('pants', clothingImg)
         }
       }
       
@@ -111,25 +109,61 @@ function changeClothing(type, clothing) {
   });
   switch (type) {
     case "hands":
-      shirtMesh.traverse(function (node) {
+      handsMesh.traverse(function (node) {
         if (node.isMesh) {
           node.material.map = texture;
         }
       });
+      if(Man_handsMesh){
+      Man_handsMesh.traverse(function (node) {
+        if (node.isMesh) {
+          node.material.map = texture;
+        }
+      })}
+      if(Woman_handsMesh){
+      Woman_handsMesh.traverse(function (node) {
+        if (node.isMesh) {
+          node.material.map = texture;
+        }
+      })}
       break;
     case "legs":
-      pantsMesh.traverse(function (node) {
-        if (node.isMesh) {
-          node.material.map = texture;
-      }
-      });
-      break;
-    case 'torso':
-        torsoMesh.traverse(function (node) {
+      legsMesh.traverse(function (node) {
         if (node.isMesh) {
           node.material.map = texture;
         }
       });
+      if(Man_legsMesh){
+      Man_legsMesh.traverse(function (node) {
+        if (node.isMesh) {
+          node.material.map = texture;
+        }
+      })}
+      if(Woman_legsMesh){
+      Woman_legsMesh.traverse(function (node) {
+        if (node.isMesh) {
+          node.material.map = texture;
+        }
+      })}
+      break;
+    case "torso":
+      torsoMesh.traverse(function (node) {
+        if (node.isMesh) {
+          node.material.map = texture;
+        }
+      });
+      if(Man_torsoMesh){
+      Man_torsoMesh.traverse(function (node) {
+        if (node.isMesh) {
+          node.material.map = texture;
+        }
+      })}
+      if(Woman_torsoMesh){
+      Woman_torsoMesh.traverse(function (node) {
+        if (node.isMesh) {
+          node.material.map = texture;
+        }
+      })}
       break;
   }
 }

@@ -8,13 +8,13 @@ import { drawTorso } from "./imageProcess.js";
 
 shirtUpload.addEventListener("change", (event) => {
   const file = event.target.files[0]; // select the image they uploaded
-  uploadHandler(file, "shirt");
   resetClothing(true);
+  uploadHandler(file, "shirt");
 });
 pantsUpload.addEventListener("change", (event) => {
   const file = event.target.files[0]; // select the image they uploaded
-  uploadHandler(file, "pants");
   resetClothing(true);
+  uploadHandler(file, "pants");
 });
 
 // Drag and Drop 📌
@@ -72,8 +72,18 @@ document.getElementById("buttonReset").addEventListener("click", () => {
 
 // 2D Preview 📌
 document.getElementById("image2D").addEventListener("click", () => {
-  window.open("../images/2DPreview.png", "_blank");
+  // window.open(document.getElementById("image2D").src, "_blank");
+  // console.log(document.getElementById('image2D').src);
 });
+document.getElementById("image2D").addEventListener("click", function () {
+  var newWindow = window.open("", "_blank");
+  var newImage = newWindow.document.createElement("img");
+  newImage.src = this.src;
+  newWindow.document.body.appendChild(newImage);
+  const BodyStyle = newWindow.document.body.style
+  BodyStyle.background = '#090909'; BodyStyle.display = 'flex'; BodyStyle.justifyContent = 'center'; BodyStyle.alignItems = 'center'
+});
+
 document.getElementById("download2D").addEventListener("click", () => {
   // Convert canvas content to data URL
   var dataURL = document.getElementById("image2D").src;
@@ -112,3 +122,38 @@ export function openMenu(menuID, menuName, close) {
 document.getElementById("version").addEventListener("click", () => {
   openMenu("updateLog", "Update Log ⌚");
 });
+
+
+// left Menu (mobile button) 📌
+let LeftMenuStatus = false;
+document.getElementById('SideMenu-Left-Button').addEventListener('click', () => {
+  if (LeftMenuStatus == false){
+    LeftMenuStatus = true;
+    document.querySelector('.SideMenu-Left').style.transform = 'translateX(0)'
+    document.querySelector('#SideMenu-Left-Button h3').style.transform = 'rotate(45deg)';
+    document.querySelector('#SideMenu-Left-Button h3').style.color = 'lightcoral';
+  }
+  else if (LeftMenuStatus == true){
+    LeftMenuStatus = false;
+    document.querySelector('.SideMenu-Left').style.transform = 'translateX(-97%)'
+    document.querySelector('#SideMenu-Left-Button h3').style.transform = 'rotate(0deg)';
+    document.querySelector('#SideMenu-Left-Button h3').style.color = 'white';
+  }
+})
+
+// Right Menu (mobile button) 📌
+let RightMenuStatus = false;
+document.getElementById('SideMenu-Right-Button').addEventListener('click', () => {
+  if (RightMenuStatus == false){
+    RightMenuStatus = true;
+    document.querySelector('.SideMenu-Right').style.transform = 'translateX(0)'
+    document.querySelector('#SideMenu-Right-Button h3').style.transform = 'rotate(45deg)';
+    document.querySelector('#SideMenu-Right-Button h3').style.color = 'lightcoral';
+  }
+  else if (RightMenuStatus == true){
+    RightMenuStatus = false;
+    document.querySelector('.SideMenu-Right').style.transform = 'translateX(97%)'
+    document.querySelector('#SideMenu-Right-Button h3').style.transform = 'rotate(0deg)';
+    document.querySelector('#SideMenu-Right-Button h3').style.color = 'white';
+  }
+})

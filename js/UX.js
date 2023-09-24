@@ -1,16 +1,15 @@
 import { openMenu } from "./activeFunctions.js";
 
 // Version check 📌
-const dripzelsVersion = '1.11';
+const dripzelsVersion = '1.5';
 let firstTime = false;
-let welcomed = false;
 
 document.getElementById('clientVersion').innerHTML = dripzelsVersion;
 
 if (localStorage.getItem('clientVersion') == null) { // First visit
   firstTime = true;
   localStorage.setItem('clientVersion', dripzelsVersion);
-  openMenu('updateLog', '🤗 Welcome! Update Log:')
+  openMenu('updateLog', 'Welcome to Dripzels!')
 }
 
 
@@ -18,25 +17,6 @@ if(localStorage.getItem('clientVersion') !== dripzelsVersion){ // The website ha
   localStorage.setItem('clientVersion', `${dripzelsVersion}`)
   openMenu('updateLog', '⌚ Update Log')
 }
-
-document.addEventListener("click", () => {
-  if (welcomed == false) {
-    welcomed = true;
-    if (firstTime == true) {
-      playAudio("welcomeAudio");
-      firstTime = false;
-    } else {
-      playAudio('welcomeBackAudio')
-    }
-  }
-});
-
-function playAudio(id){
-  document.getElementById(id).volume = 0.4;
-  document.getElementById(id).play()
-}
-
-
 
 // Cursor changer 📌
 document.addEventListener('mousedown', (e) => {
@@ -63,10 +43,6 @@ document.getElementById('closePopup').addEventListener('click', () => {
     document.getElementById("popupContainer").classList.remove('open')
     openMenu('menu2D', '2D clothing Menu', true)
     openMenu('updateLog', '⌚ Update Log', true)
-    if (firstTime == true){
-      playAudio('welcomeAudio')
-      console.log('First time')
-    }
 })
 document.addEventListener('keydown', (key) => {
   if (key.code == "Escape"){
@@ -74,9 +50,5 @@ document.addEventListener('keydown', (key) => {
     document.getElementById("popupContainer").classList.remove('open')
     openMenu('menu2D', '2D clothing Menu', true)
     openMenu('updateLog', '⌚ Update Log', true)
-    if (firstTime == true){
-      playAudio('welcomeAudio')
-      console.log('First time')
-    }
   }
 })

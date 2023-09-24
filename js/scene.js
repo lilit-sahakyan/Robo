@@ -12,9 +12,12 @@ export let spotLight2;
 export let spotLight3;
 export let spotLight4;
 export let torsoMesh;
-export let shirtMesh;
-export let pantsMesh;
-
+export let handsMesh;
+export let legsMesh;
+export let torsoMaterial;
+export let handsMaterial;
+export let legsMaterial;
+export const loader = new GLTFLoader();
 
 export function initScene() {
 
@@ -23,12 +26,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.antialias = true;
 document.body.appendChild(renderer.domElement);
 renderer.shadowMap.enabled = true;
-camera = new THREE.PerspectiveCamera(
-  60,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000
-);
+camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight ,0.1,1000);
 
 // Controls
 scene = new THREE.Scene();
@@ -36,7 +34,6 @@ scene = new THREE.Scene();
 renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 
 // Objects ⭐
-const loader = new GLTFLoader();
 
 // Floor
 const gridGround = new THREE.GridHelper(100, 130, 0x7a7a7a, 0x454545);
@@ -60,19 +57,17 @@ scene.add(ambientLight, spotLight1, spotLight2, spotLight3, spotLight4);
 
 THREE.ColorManagement.enabled = true;
 
-//   Character
-let torsoMaterial = "";
-let shirtMaterial = "";
-let pantsMaterial = "";
+
 // Torso
 loader.load(
-  "../models/torso.glb",
+  "../models/Blocky_Torso.glb",
   function (gltf) {
     const model = gltf.scene;
     model.scale.set(0.3, 0.3, 0.3); // Adjust the scale as needed
     const textureLoader = new THREE.TextureLoader();
+    const randNum = Math.floor(Math.random() * (2 - 1 + 1) + 1) // Face picker
     const texture = textureLoader.load(
-      "../models/textures/baseShirt.png",
+      `../models/textures/baseShirt.png`,
       function (texture) {
         texture.flipY = false;
         texture.needsUpdate = true;
@@ -96,12 +91,12 @@ loader.load(
     console.error(error);
   }
 );
-// Shirt
+// Hands
 loader.load(
-  "../models/Shirt.glb",
+  "../models/Blocky_Hands.glb",
   function (gltf) {
     const model = gltf.scene;
-    model.scale.set(0.3, 0.3, 0.3); // Adjust the scale as needed
+    model.scale.set(0.3, 0.3, 0.3); 
     const textureLoader = new THREE.TextureLoader();
     const texture = textureLoader.load(
       "../models/textures/baseShirt.png",
@@ -110,30 +105,30 @@ loader.load(
         texture.needsUpdate = true;
       }
     );
-    shirtMaterial = new THREE.MeshBasicMaterial({
+    handsMaterial = new THREE.MeshBasicMaterial({
       color: 0xffffff,
       map: texture,
     });
     model.traverse(function (node) {
       if (node.isMesh) {
-        node.material = shirtMaterial;
+        node.material = handsMaterial;
         node.castShadow = true;
       }
     });
-    shirtMesh = model;
-    scene.add(shirtMesh);
+    handsMesh = model;
+    scene.add(handsMesh);
   },
   undefined,
   function (error) {
     console.error(error);
   }
 );
-// Pants
+// Legs
 loader.load(
-  "../models/Pants.glb",
+  "../models/Blocky_Legs.glb",
   function (gltf) {
     const model = gltf.scene;
-    model.scale.set(0.3, 0.3, 0.3); // Adjust the scale as needed
+    model.scale.set(0.3, 0.3, 0.3);
     const textureLoader = new THREE.TextureLoader();
     const texture = textureLoader.load(
       "../models/textures/basePants.png",
@@ -142,18 +137,18 @@ loader.load(
         texture.needsUpdate = true;
       }
     );
-    pantsMaterial = new THREE.MeshBasicMaterial({
+    legsMaterial = new THREE.MeshBasicMaterial({
       color: 0xffffff,
       map: texture,
     });
     model.traverse(function (node) {
       if (node.isMesh) {
-        node.material = pantsMaterial;
+        node.material = legsMaterial;
         node.castShadow = true;
       }
     });
-    pantsMesh = model;
-    scene.add(pantsMesh);
+    legsMesh = model;
+    scene.add(legsMesh);
   },
   undefined,
   function (error) {
