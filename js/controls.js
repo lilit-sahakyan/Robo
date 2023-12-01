@@ -6,10 +6,9 @@ import {
   camera,
 } from "./scene.js";
 
-
 export let orbit;
 export let orbit2;
-  
+
 export function setupControls() {
   orbit = new OrbitControls(camera, renderer.domElement);
   orbit2 = new TrackballControls(camera, renderer.domElement);
@@ -28,5 +27,11 @@ export function setupControls() {
   orbit2.noZoom = false;
   orbit2.zoomSpeed = 1.5;
 
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  if (isMobile) {
+    orbit2.enabled = false;
+    orbit.enabled = true;
+    orbit.enableZoom = true;
+  }
   orbit.update();
 }
