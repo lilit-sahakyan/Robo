@@ -11,7 +11,7 @@ export function drawTorso(pants, shirt, defaultShirt, callback) {
       canvas.height = skinImage.height;
 
       ctx.drawImage(skinImage, 0, 0);
-      if (pants.src !== '../models/textures/basePants.webp'){ctx.drawImage(pants, 0, 0);}
+      if (pants.src !== '../models/textures/basePants.png'){ctx.drawImage(pants, 0, 0);}
       if (defaultShirt == false) {ctx.drawImage(shirt, 0, 0);}
 
       const overlaidImage = new Image();
@@ -151,28 +151,28 @@ export async function addPaddingToImg(clothingImg, callback) {
   try {
     clothingImg = await addSkin(clothingImg);
 
-    clothingImg = await addPadding(clothingImg, 231, 8, 358, 71);
+    // clothingImg = await addPadding(clothingImg, 231, 8, 358, 71);
 
-    clothingImg = await addPadding(clothingImg, 165, 74, 228, 201);
-    clothingImg = await addPadding(clothingImg, 231, 74, 358, 201);
-    clothingImg = await addPadding(clothingImg, 361, 74, 424, 201);
-    clothingImg = await addPadding(clothingImg, 427, 74, 554, 201);
+    // clothingImg = await addPadding(clothingImg, 165, 74, 228, 201);
+    // clothingImg = await addPadding(clothingImg, 231, 74, 358, 201);
+    // clothingImg = await addPadding(clothingImg, 361, 74, 424, 201);
+    // clothingImg = await addPadding(clothingImg, 427, 74, 554, 201);
 
-    clothingImg = await addPadding(clothingImg, 231, 204, 358, 267);
+    // clothingImg = await addPadding(clothingImg, 231, 204, 358, 267);
     
-    clothingImg = await addPadding(clothingImg, 217, 289, 280, 352);
-    clothingImg = await addPadding(clothingImg, 308, 289, 371, 352);
+    // clothingImg = await addPadding(clothingImg, 217, 289, 280, 352);
+    // clothingImg = await addPadding(clothingImg, 308, 289, 371, 352);
 
-    clothingImg = await addPadding(clothingImg, 217,355, 280, 482);
-    clothingImg = await addPadding(clothingImg, 151,355, 214, 482);
-    clothingImg = await addPadding(clothingImg, 85,355, 148, 482);
-    clothingImg = await addPadding(clothingImg, 19,355, 82, 482);
-    clothingImg = await addPadding(clothingImg, 308,355, 371, 482);
-    clothingImg = await addPadding(clothingImg, 374,355, 437, 482);
-    clothingImg = await addPadding(clothingImg, 440,355, 503, 482);
-    clothingImg = await addPadding(clothingImg, 506,355, 569, 482);
+    // clothingImg = await addPadding(clothingImg, 217,355, 280, 482);
+    // clothingImg = await addPadding(clothingImg, 151,355, 214, 482);
+    // clothingImg = await addPadding(clothingImg, 85,355, 148, 482);
+    // clothingImg = await addPadding(clothingImg, 19,355, 82, 482);
+    // clothingImg = await addPadding(clothingImg, 308,355, 371, 482);
+    // clothingImg = await addPadding(clothingImg, 374,355, 437, 482);
+    // clothingImg = await addPadding(clothingImg, 440,355, 503, 482);
+    // clothingImg = await addPadding(clothingImg, 506,355, 569, 482);
     
-    clothingImg = await addPadding(clothingImg, 217,485, 280, 548);
+    // clothingImg = await addPadding(clothingImg, 217,485, 280, 548);
     clothingImg = await addPadding(clothingImg, 308,485, 371, 548, (finalImg) => {callback(finalImg)});
     callback(clothingImg);
   } catch (error) {

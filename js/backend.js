@@ -35,7 +35,6 @@ function changePage(page) {
   const navButtons = document.querySelectorAll(".NavButton");
   const optionPages = document.querySelectorAll(".OptionMenu-Page");
   let pageTitle = "Dripzels | Free Roblox Clothing Preview Generator"
-  let faviconPath = "../images/Logo.png";
 
   optionPages.forEach((page) => {
     page.style.display = "none";
@@ -66,24 +65,10 @@ function changePage(page) {
   }
     // Set the dynamic title
     pageTitle = page.charAt(0).toUpperCase() + page.slice(1) + " | Dripzels";
-    faviconPath = `../images/${page}_Icon.png`;
     if(page == 'home' || page == ''){
       pageTitle = "Home | Dripzels";
-      faviconPath = '../images/Logo.png'
     }
     document.title = pageTitle;
-
-    // Set the dynamic favicon
-    const favicon = document.querySelector('link[rel="icon"]');
-    if (favicon) {
-      favicon.href = faviconPath;
-    } else {
-      // If favicon element doesn't exist, create and append it to the head
-      const newFavicon = document.createElement("link");
-      newFavicon.rel = "icon";
-      newFavicon.href = 'faviconPath';
-      document.head.appendChild(newFavicon);
-    }
 }
 
 

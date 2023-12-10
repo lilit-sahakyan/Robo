@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { spotLight1, spotLight2, spotLight3, spotLight4, torsoMesh, handsMesh, legsMesh, torsoMaterial, handsMaterial, legsMaterial, scene, loader, headMesh, headMaterial, christmas_sun,
+import { spotLight1, spotLight2, spotLight3, spotLight4, torsoMesh, handsMesh, legsMesh, torsoMaterial, handsMaterial, legsMaterial, scene, loader, headMesh, headMaterial,
 } from "./scene.js";
 import { defaultShirt } from "./applyClothing.js";
 
@@ -22,9 +22,8 @@ export function setupRenderTypes() {
 
 
   lightingOption_None.addEventListener("click", (event) => {
-    christmas_sun.intensity = .5;
-    spotLight1.intensity = 0;
-    spotLight2.intensity = 0;
+    spotLight1.intensity = 10;
+    spotLight2.intensity = 10;
     spotLight3.intensity = 0;
     spotLight4.intensity = 0;
     // Blocky 📌
@@ -58,7 +57,7 @@ export function setupRenderTypes() {
     });
 
     // Man 📌
-    if (Man_torsoMesh){
+    if (Man_torsoMesh) {
       Man_headMesh.traverse(function (node) {
         if (node.isMesh) {
           node.material = new THREE.MeshBasicMaterial({
@@ -86,10 +85,11 @@ export function setupRenderTypes() {
             map: node.material.map,
           });
         }
-      });}
+      });
+    }
 
     // Woman 📌
-    if (Woman_torsoMesh){
+    if (Woman_torsoMesh) {
       Woman_headMesh.traverse(function (node) {
         if (node.isMesh) {
           node.material = new THREE.MeshBasicMaterial({
@@ -117,13 +117,24 @@ export function setupRenderTypes() {
             map: node.material.map,
           });
         }
-      });}
+      });
+    }
+
+    // Curvy Woman 📌
+    if (Curvy_Woman_legsMesh) {
+      Curvy_Woman_legsMesh.traverse(function (node) {
+        if (node.isMesh) {
+          node.material = new THREE.MeshBasicMaterial({
+            map: node.material.map,
+          });
+        }
+      });
+    }
   });
 
   lightingOption_Studio.addEventListener("click", (event) => {
-    christmas_sun.intensity = 0;
-    spotLight1.intensity = 0.3;
-    spotLight2.intensity = 0.3;
+    spotLight1.intensity = 10;
+    spotLight2.intensity = 10;
     spotLight3.intensity = 0;
     spotLight4.intensity = 0;
 
@@ -217,15 +228,27 @@ export function setupRenderTypes() {
             map: node.material.map,
           });
         }
-      });}
+      });
+    }
+
+    // Curvy Woman 📌
+    if (Curvy_Woman_legsMesh){
+      Curvy_Woman_legsMesh.traverse(function (node) {
+        if (node.isMesh) {
+          node.material = new THREE.MeshStandardMaterial({
+            map: node.material.map,
+          });
+        }
+      });
+    }
+
   });
 
   lightingOption_Sunset.addEventListener("click", (event) => {
-    christmas_sun.intensity = 0;
     spotLight1.intensity = 0;
     spotLight2.intensity = 0;
-    spotLight3.intensity = 0.7;
-    spotLight4.intensity = 1;
+    spotLight3.intensity = 90;
+    spotLight4.intensity = 100;
     headMesh.traverse(function (node) {
       if (node.isMesh) {
         node.material = new THREE.MeshStandardMaterial({

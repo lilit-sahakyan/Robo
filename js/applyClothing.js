@@ -13,9 +13,9 @@ const pantsUpload = document.getElementById("pantsUpload");
 export let defaultShirt = true;
 export let reset = false;
 let processedShirt;
-let currentHands = new Image(); currentHands.src = "../models/textures/baseShirt.webp";
-let currentLegs = new Image(); currentLegs.src = "../models/textures/basePants.webp";
-let currentTorso = new Image(); currentTorso.src = "../models/textures/baseShirt.webp";
+let currentHands = new Image(); currentHands.src = "../models/textures/baseShirt.png";
+let currentLegs = new Image(); currentLegs.src = "../models/textures/basePants.png";
+let currentTorso = new Image(); currentTorso.src = "../models/textures/baseShirt.png";
 let uploadedShirt = new Image();
 
 export function resetClothing(changed) {
@@ -26,9 +26,9 @@ export function resetClothing(changed) {
     }
     reset = true;
     processedShirt = undefined;
-    currentHands.src = "../models/textures/baseShirt.webp";
-    currentLegs.src = "../models/textures/basePants.webp";
-    currentTorso.src = "../models/textures/baseShirt.webp";
+    currentHands.src = "../models/textures/baseShirt.png";
+    currentLegs.src = "../models/textures/basePants.png";
+    currentTorso.src = "../models/textures/baseShirt.png";
     // uploadHandler(currentLegs, 'pants', true);
     changeClothing('hands', currentHands)
     changeClothing('torso', currentTorso)
@@ -64,56 +64,12 @@ export function addSkin(img, callback) {
 export function uploadHandler(file, type) {
   try {
     clothingChecks(file, (passed) => {
+      document.getElementById('clothingLoading').style.display = 'block';
+      document.getElementById('threeJsCanvas').style.filter = 'brightness(80%)';
 
       let rawClothing = passed;
 
       addSkin(passed, (clothingImg) => {
-
-      const addPaddingPromise = new Promise((resolve, reject) => {
-        addPaddingToImg(clothingImg, (result) => {
-          resolve(result);
-        });
-        setTimeout(() => {
-          reject(new Error("Timed out while adding padding to clothing. \nThe humanoid might have black lines on the edges. \n\nThis is a minor error, you can ignore this."));
-        }, 3000);
-      });
-
-      // Handle the promise
-      addPaddingPromise
-        .then((result) => {
-          if (type == "shirt") {
-            currentHands = clothingImg;
-            uploadedShirt = rawClothing;
-            processedShirt = result;
-            if (reset == false) {
-              defaultShirt = false;
-            }
-            shirtUpload.value = null;
-            draw2D("shirt", rawClothing);
-          } else if (type == "pants") {
-            currentLegs = result;
-            pantsUpload.value = null;
-            if (defaultShirt == false) {
-              draw2D("pants", rawClothing);
-              setTimeout(() => {
-                draw2D("shirt", uploadedShirt);
-              }, 1000);
-            } else {
-              draw2D("pants", rawClothing);
-            }
-          }
-          Promise.all([
-            drawTorso(currentLegs, uploadedShirt, defaultShirt, (result) => {
-              currentTorso = result;
-              changeClothing("legs", currentLegs);
-              changeClothing("torso", currentTorso);
-              changeClothing("hands", processedShirt || currentHands);
-            }),
-          ]);
-        })
-        .catch((error) => {
-          console.warn(error);
-
           if (type == "shirt") {
             currentHands = clothingImg;
             uploadedShirt = rawClothing;
@@ -122,14 +78,13 @@ export function uploadHandler(file, type) {
             }
             shirtUpload.value = null;
             draw2D("shirt", rawClothing);
-          } else if (type == "pants") {
+          } 
+          else if (type == "pants") {
             currentLegs = clothingImg;
             pantsUpload.value = null;
             if (defaultShirt == false) {
-              draw2D("pants", rawClothing);
-              setTimeout(() => {
                 draw2D("shirt", currentHands);
-              }, 1000);
+                draw2D("pants", rawClothing);
             } else {
               draw2D("pants", rawClothing);
             }
@@ -141,9 +96,11 @@ export function uploadHandler(file, type) {
               changeClothing("legs", currentLegs);
               changeClothing("torso", currentTorso);
               changeClothing("hands", currentHands);
+              document.getElementById('clothingLoading').style.display = 'none';
+              document.getElementById('threeJsCanvas').style.filter = 'brightness(100%)';
             }),
           ]);
-        });
+        
       })
 
     });

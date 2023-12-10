@@ -261,8 +261,10 @@ html, body{
 
 
       img {
-        width: 75%;
+        width: 100%;
+        max-width: 75%;
         height: auto;
+        aspect-ratio: 1/1;
         transition: filter 0.15s;
         pointer-events: none;
         user-select: none;
@@ -276,6 +278,7 @@ html, body{
         pointer-events: none;
         color: $text;
         transition: filter 0.15s;
+        text-wrap: nowrap;
       }
     }
     #NavButton-Preview{
@@ -541,6 +544,7 @@ html, body{
           .HumanoidMisc-Option{
             display: flex;
             justify-content: space-between;
+            align-items: center;
             background-color: lighten($color: $background, $amount: 8);
             border-radius: 1rem;
           }
@@ -606,11 +610,18 @@ html, body{
 
   p,
   h2 {
-    color: darken($color: desaturate($text, 60), $amount: 10);
-    max-width: 90%;
+    font-weight: 300;
+    max-width: 85%;
   }
   h2{
+    font-weight: 900;
     margin-top: 1.5rem;
+  }
+  
+  .appleWarning{
+    margin-top: 2rem;
+    color: darken($color: $text, $amount: 10);
+    font-weight: 200;
   }
 
   canvas {
@@ -622,6 +633,7 @@ html, body{
     transition: opacity .7s;
     cursor: grab;
     border-radius: 1rem 0 0 1rem;
+    background-color: lighten($color: $background, $amount: 2);
   }
 
   #LoadingLogo {
@@ -721,9 +733,18 @@ html, body{
           width: 65%;
         }
       }
-      
-      
+        
     }
+
+    #clothingLoading{
+      top: 1rem;
+      bottom: auto;
+      position: absolute;
+      margin: .5rem;
+      @include flexCenter;
+      color: red;
+    }
+    
   }
 }
 
@@ -835,6 +856,7 @@ html, body{
   
     .PreviewMode-2D{  
       width: 100%;
+      border-radius: 0;
       img{
         width: 95%;
       }
@@ -876,6 +898,10 @@ html, body{
         .ResetButton {
           margin: 0 .5rem 1rem 0;
         }
+      }
+      #clothingLoading{
+        top: auto;
+        bottom: 1rem;
       }
     }
   }

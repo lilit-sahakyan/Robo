@@ -1,9 +1,9 @@
 <div align="center">
 
-# Dripzels v2.0 
+# Dripzels v2.1
 
 Made with ♥ by [SpaceDorito](https://spacedorito.xyz)
-Last Updated: 1 December 2023
+Last Updated: 4 January 2024
 
 ---
 
@@ -24,7 +24,6 @@ It's just a $1/month subscription if you feel like throwing some love our way. B
 
 </div>
 
-Merry Christmas! 🎄
 
 <br>
 

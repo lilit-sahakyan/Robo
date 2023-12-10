@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700&display=swap');
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v140/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
 
 
 $text: #cfcfcf;
@@ -35,12 +41,14 @@ a:not(.noLinkCss){
   color: lighten($primary, 30);
 }
 a[target="_blank"]:not(.noLinkCss)::after {
-  font-family: 'FontAwesome';
-  content: "\f08e";
+  font-family: 'Material Icons';
+  content: "open_in_new";
   display: inline-block;
   margin-left: 4px;
-  font-size: .8em;
+  font-size: 1em;
   color: inherit !important;
+
+  
 }
 
 // Range
@@ -127,12 +135,12 @@ input[type="number"] {
   cursor: pointer;
   background-color: lighten($color: $background, $amount: 8);
   transition: background .15s;
+  -moz-appearance: textfield;
 
   // Remove the default spin buttons in webkit browsers
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     appearance: none;
-    -moz-appearance: textfield;
     margin: 0;
   }
   
@@ -249,13 +257,13 @@ code{
   color: currentColor !important;
   text-decoration: none;
   font-weight: 400;
-  font-size: .75em;
+  font-size: .9em;
   padding: 0 .5em;
   background-color: rgba($color: $accent, $alpha: .4);
   border-radius: .4rem;
   transition: background .15s;
 
-  img{height: .8em; margin-right: .2em}
+  img{height: .8em; margin-right: .2em;}
 
   &:hover{
     background-color: rgba($color: $accent, $alpha: .6);
@@ -334,6 +342,7 @@ button{
   text-wrap: nowrap;
   overflow: hidden;
   img{
+    min-width: 25%;
     max-width: 1.5rem;
     border-radius: 0rem;
   }
@@ -386,3 +395,64 @@ button{
     width: 1.5em;
   }
 }
+
+
+// Loading 
+$base-font-size: 16px;
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 4.5rem;
+  height: 1.5rem;
+
+  div {
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    width: 0.7rem;
+    height: 0.7rem;
+    margin: 0;
+    border-radius: 50%;
+    background: hsla(0, 0%, 50%, 1);
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+
+    &:nth-child(1) {
+      left: 0.5rem;
+      animation: lds-ellipsis1 0.6s infinite;
+    }
+
+    &:nth-child(2) {
+      left: 0.5rem;
+      animation: lds-ellipsis2 0.6s infinite;
+    }
+
+    &:nth-child(3) {
+      left: 2rem;
+      animation: lds-ellipsis2 0.6s infinite;
+    }
+
+    &:nth-child(4) {
+      left: 3.5rem;
+      animation: lds-ellipsis3 0.6s infinite;
+    }
+  }
+}
+
+@keyframes lds-ellipsis1 {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes lds-ellipsis3 {
+  0% { transform: scale(1); }
+  100% { transform: scale(0); }
+}
+
+@keyframes lds-ellipsis2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(1.5rem, 0); }
+}
+

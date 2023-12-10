@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head data-version="2.0">
+    <head data-version="2.1">
         <!-- 📌 Canonical URL -->
         <link rel="canonical" href="https://dripzels.spacedorito.xyz" />
 
@@ -41,8 +41,8 @@
         <script type="importmap">
             {
                 "imports": {
-                    "three": "https://unpkg.com/three@0.153.0/build/three.module.min.js",
-                    "three/addons/": "https://unpkg.com/three@v0.153.0/examples/jsm/"
+                    "three": "https://unpkg.com/three@0.159.0/build/three.module.min.js",
+                    "three/addons/": "https://unpkg.com/three@v0.159.0/examples/jsm/"
                 }
             }
         </script>
@@ -99,7 +99,7 @@
                         <h3><span class="titleColor">Drip</span>zels</h3> <p>v<span data-version-display>1.0</span></p>
                     </div>
                     <p>Made with ♥ by <a href="spacedorito.xyz" target="_blank">SpaceDorito</a></p>
-                    <p>Last Updated: 1 December 2023</p>
+                    <p>Last Updated: 4 January 2024</p>
                 </div>
 
                 <hr>
@@ -110,18 +110,9 @@
                     <div>
                         <h2>Summary:</h2>
                         <p>
-                            In this update, I've spruced up the place with a slick new UI and tossed in some nifty features to level up your Dripzels experience. 🚀
-                            <br>
-                            <br>
-                            Guess what? We've got a <a href="https://www.patreon.com/Dripzels" class="webLink" target="_blank">Patreon</a> now! 🎉
-                            <br>
-                            It's just a $1/month subscription if you feel like throwing some love our way. But no pressure, seriously. The website is and will always be free for you to use. 
-                            <br>
-                            The Patreon is only if you wish to support the site because, well, it costs me $15/year and hours of caffeine-fueled coding sessions to keep the site up, so your support means a lot to me. 
-                            <br>
+                            Improved the perfomance and fixed bugs. 🔧
                             <br>
                         </p>
-                        <p> Merry Christmas! 🎄 </p>
                     </div>
 
                     <div>
@@ -129,13 +120,8 @@
                         <ul class="UpdateChangesList">
                             <h3>What's New:</h3>
                             <ul>
-                                <li>Whole new organized UI</li>
-                                <li>Option to hide the head</li>
-                                <li>Robux Calculator</li>
-                                <li>Curvy Woman humanoid 😳</li>
-                                <li>Loading screen</li>
-                                <li>Better navigation for mobile devices</li>
-                                <li>Made the face change every time you refresh the page. There are a total of 13 faces</li>
+                                <li>New background for the 2D preview</li>
+                                <li>Loading Icon for when the website is processing your clothing</li>
                                 <li><a class="webLink" href="https://www.patreon.com/Dripzels" target="_blank">Patreon</a></li>
                             </ul>
                             
@@ -143,19 +129,20 @@
                             
                             <h3>Improvements:</h3>
                             <ul>
-                                <li>No more black lines at the edge of the humanoid!</li>
-                                <li>Faster loading time (hopefully)</li>
-                                <li>Removed the background from the 2D clothing preview</li>
-                                <li>Changed the animation time from 0.3s to 0.15s</li>
+                                <li><s style="color: lightcoral;">No more black lines at the edge of the humanoid!</s> - This was causing lag in the last update and didn't seem to work all the time so I've removed it. </li>
+                                <li>Faster loading time</li>
+                                <li>Slightly better lighting</li>
+                                <li>Fixed the lighting not affecting the curvy woman legs</li>
+                                <li>Fixed layering for the shirt and pants</li>
+                                <li>Minor Updates</li>
                             </ul>
                             
                             <br>
                             
                             <h3>Bugs and removed features:</h3>
                             <ul>
-                                <li>Removed Drag-And-Drop for clothing. This might return soon</li>
-                                <li>The website might freeze sometimes while loading so just try refreshing the page.</li>
-                                <li>Please DM me on Discord <b>@dori7os</b> if you find any bugs.</li>
+                                <li>Removed the loading screen</li>
+                                <li>If you have found a bug or if you have a suggestion for an update for the website, open an "issue" on the <a href="https://github.com/SpaceDoritos/Dripzels/issues/new" target="_blank" class="webLink">GitHub page</a> of Dripzels</li>
                             </ul>
                         </ul>
                         
@@ -187,20 +174,20 @@
         <section id="section25">
             <nav class="NavBar">
                 <div class="NavButton" id="NavButton-home" onclick='window.location.hash = "#home"; handleHashChange(); toggleOptionMenu("show")'>
-                    <img src="images/Logo.png" alt="Navigation Home" style="width: 100%; padding: 0;" draggable="false" loading="lazy">
+                    <img src="images/Logo.png" alt="Navigation Home" style="min-width: 100%; padding: 0;" draggable="false" loading="lazy">
                 </div>
                 <hr>
 
                 <div class="NavButton" id="NavButton-clothing" onclick='window.location.hash = "#clothing"; handleHashChange(); toggleOptionMenu("show")'>
-                    <img src="images/icons/Icon_Shirt.webp" alt="Navigation Clothing" draggable="false" loading="lazy">
+                    <img src="images/icons/Icon_Shirt.webp" alt="Navigation Clothing" draggable="false" loading="lazy" width="512px" height="512px">
                     <p>Clothing</p>
                 </div>
                 <div class="NavButton" id="NavButton-Preview" onclick='window.location.hash = ""; handleHashChange(); toggleOptionMenu("hide")'>
-                    <img src="images/icons/Icon_3D.webp" alt="Navigation Preview" draggable="false" loading="lazy">
+                    <img src="images/icons/Icon_3D.webp" alt="Navigation Preview" draggable="false" loading="lazy" width="512px" height="512px">
                     <p>Preview</p>
                 </div>
                 <div class="NavButton" id="NavButton-humanoid" onclick='window.location.hash = "#humanoid"; handleHashChange(); toggleOptionMenu("show")'>
-                    <img src="images/icons/Icon_Humanoid_Blocky.webp" alt="Navigation Humanoid" draggable="false" loading="lazy">
+                    <img src="images/icons/Icon_Humanoid_Blocky.webp" alt="Navigation Humanoid" draggable="false" loading="lazy" width="512px" height="512px">
                     <p>Humanoid</p>
                 </div>
                 <div class="NavButton" id="NavButton-robux" onclick='window.location.hash = "#robux"; handleHashChange(); toggleOptionMenu("show")'>
@@ -377,14 +364,17 @@
             <p>Loading 3D elements, please have patience.</p>
             <p>Is this a bug? <a href="https://github.com/SpaceDoritos/Dripzels/issues" target="_blank">Create a new issue in the Github</a> and mark it as an bug!</p>
             <h2 id="loadingProgress">0%</h2>
+            <p class="appleWarning">For apple users, you need iOS 16.6+ for the 3D environment to load. Please make sure your OS is updated to the latest version.</p>
+
 
             <div class="PreviewMode-2D polka" id="PreviewMode-2D">
-                <img src="images/2DPreview.webp" alt="2D Clothing Preview" id="image2D" draggable="false" loading="lazy">
+                <img src="images/2DPreview.png" alt="2D Clothing Preview" id="image2D" draggable="false" loading="lazy">
                 <div id="download2D"><h3>Download</h3></div>
                 <p>It's a free service, please let the watermark stay. <3</p>
             </div>
 
             <div class="OverlayMenu">
+                <div style="display: none;" class="lds-ellipsis" id="clothingLoading"><div></div><div></div><div></div><div></div></div>
                 <div class="bottomLeft">
                     <div class="PreviewModeToggle" id="PreviewModeToggle">
                         <div class="PreviewModeToggle-Option selected">3D</div>
@@ -393,7 +383,6 @@
                     <div class="ResetButton" id="buttonReset">
                         <img src="images/icons/Icon_Reset.webp" alt="Reset Button" draggable="false" loading="lazy">
                     </div>
-
                 </div>
             </div>
         </section>

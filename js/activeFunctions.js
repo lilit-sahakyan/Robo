@@ -4,6 +4,7 @@ const pantsUpload = document.getElementById("pantsUpload");
 
 // Upload handler 📌
 import { reset, resetClothing, uploadHandler } from "./applyClothing.js";
+import { initScene } from "./scene.js";
 
 shirtUpload.addEventListener("change", (event) => {
   const file = event.target.files[0]; // select the image they uploaded
