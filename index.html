@@ -3,7 +3,7 @@
 
     <head data-version="2.1">
         <!-- 📌 Canonical URL -->
-        <link rel="canonical" href="https://dripzels.spacedorito.xyz" />
+        <link rel="canonical" href="https://dripzels.com/" />
 
         <!-- 📌 Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-F8M63TX2SY"></script>
@@ -25,12 +25,12 @@
         <meta property="og:title" content="Dripzels Roblox Clothing Preview" />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Dripzels" />
-        <meta property="og:url" content="https://dripzels.spacedorito.xyz" />
-        <meta property="og:image" content="https://dripzels.spacedorito.xyz/images/Banner.png" />
+        <meta property="og:url" content="https://dripzels.com" />
+        <meta property="og:image" content="https://dripzels.com/images/Banner.png" />
         <meta property="og:description"
             content="Dripzels is a free Roblox clothing preview generator offering 3D and 2D previews. Your clothing data is not stored." />
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="theme-color" content="#bfbfbf"/>
+        <meta name="theme-color" content="#9B89F1"/>
         <meta name="keywords" content="Roblox, Clothing, Preview, 3D, 2D, Generator, Free, Dripzels">
 
 
@@ -56,336 +56,320 @@
     <body>
         <noscript style="color: white;">You need to enable JavaScript to run this app.</noscript>
 
-        <!-- <alert id="emergAlert">
-            <p>I'm aware of the clothing issue on mobile devices and a few other bugs, and I'm working on it. Meanwhile, if you have issues, you could use the <a class="webLink" href="https://dripzels-dev.netlify.app">Dev website | Dripzels v1.5</a> while the main site is being fixed.</p>
-            <button onclick="document.getElementById('emergAlert').remove()"
-             class="close-button" aria-label="Close"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>                  
-        </alert>
+        <!-- <div id="messageBanner">
+            <small>After July 30 2024, this website, dripzels.spacedorito.xyz won't be available. We've moved to a new domain at <a href="https://dripzels.spacedorito.com/">dripzels.spacedorito.com</a>. Please update your bookmark if you have one set.</small>
+            <button id="bannerClose" onclick="document.getElementById('messageBanner').remove()"
+             class="close-button" aria-label="Close"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
+        </div> -->
 
         <style>
-            alert{
-                position: absolute;
+            #messageBanner{
+                position: relative;
+                box-sizing: border-box;
                 z-index: 70;
+                display: flex;
                 align-items: center;
-                width: 70%;
-                left: 50%;
-                transform: translateX(-50%);
-                top: 2rem;
-                padding: 1rem;
-                padding-right: 4rem;
-                border-radius: 1rem;
-
-                background-color: #2c1c1c;
-                border: 1px solid lightcoral;
-                max-width: 90%;
+                justify-content: center;
+                width: 100%;
+                background: black;
+                padding: .5rem 1rem;
+                color: grey;
             }
-        </style> -->
+            #messageBanner small{
+                max-width: 80%;
+            }
+            #messageBanner a{
+                color: #cfcfcf;
+                text-decoration: none;
+            }
+            #messageBanner .close-button, #bannerClose:hover{
+                position: absolute;
+                margin: 0;
+                padding: 0;
+                right: .5rem;
+                top: 50%;
+                transform: translate(0, -50%);
+                width: 1.3rem;
+                height: 1.3rem;
+                background: none;
+                rotate: none;
+            }
+        </style>
 
 
 
-        <section id="section-Popup">
-            <div class="Popup-Error PopupMenu">
-                <button data-close-button class="close-button" aria-label="Close"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>                  
-                <h3>An error occured!</h3>
-                <hr>
-                <code id="ErrorMessage">Error Message</code>
-            </div>
-
-            <div class="Popup-UpdateLog PopupMenu">
-
-                <button data-close-button class="close-button" aria-label="Close"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
-                <div class="HomeTop">
-                    <div class="homeTitle">
-                        <h3><span class="titleColor">Drip</span>zels</h3> <p>v<span data-version-display>1.0</span></p>
-                    </div>
-                    <p>Made with ♥ by <a href="spacedorito.xyz" target="_blank">SpaceDorito</a></p>
-                    <p>Last Updated: 4 January 2024</p>
-                </div>
-
-                <hr>
-
-                <h1><u>Release Notes</u></h1>
-                <div class="updateContent">
-
-                    <div>
-                        <h2>Summary:</h2>
-                        <p>
-                            Improved the perfomance and fixed bugs. 🔧
-                            <br>
-                        </p>
-                    </div>
-
-                    <div>
-                        <h2>Detailed Update log:</h2>
-                        <ul class="UpdateChangesList">
-                            <h3>What's New:</h3>
-                            <ul>
-                                <li>New background for the 2D preview</li>
-                                <li>Loading Icon for when the website is processing your clothing</li>
-                                <li><a class="webLink" href="https://www.patreon.com/Dripzels" target="_blank">Patreon</a></li>
-                            </ul>
-                            
-                            <br>
-                            
-                            <h3>Improvements:</h3>
-                            <ul>
-                                <li><s style="color: lightcoral;">No more black lines at the edge of the humanoid!</s> - This was causing lag in the last update and didn't seem to work all the time so I've removed it. </li>
-                                <li>Faster loading time</li>
-                                <li>Slightly better lighting</li>
-                                <li>Fixed the lighting not affecting the curvy woman legs</li>
-                                <li>Fixed layering for the shirt and pants</li>
-                                <li>Minor Updates</li>
-                            </ul>
-                            
-                            <br>
-                            
-                            <h3>Bugs and removed features:</h3>
-                            <ul>
-                                <li>Removed the loading screen</li>
-                                <li>If you have found a bug or if you have a suggestion for an update for the website, open an "issue" on the <a href="https://github.com/SpaceDoritos/Dripzels/issues/new" target="_blank" class="webLink">GitHub page</a> of Dripzels</li>
-                            </ul>
-                        </ul>
-                        
-                        <p>Happy Designing! 👋</p>
-
-                    </div>
-
+        <div class="body">
+            <section id="section-Popup">
+                <div class="Popup-Error PopupMenu">
+                    <button data-close-button class="close-button" aria-label="Close"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
+                    <h3>An error occured!</h3>
                     <hr>
-
-                    <div id="PatreonSection">
-                        <img id="PatreonBanner" src="images/Dripzels-Patreon.png" alt="Dripzels Patreon Banner" loading="lazy">
-
+                    <code id="ErrorMessage">Error Message</code>
+                </div>
+                <div class="Popup-UpdateLog PopupMenu">
+                    <button data-close-button class="close-button" aria-label="Close"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg></button>
+                    <div class="HomeTop">
+                        <div class="homeTitle">
+                            <h3><span class="titleColor">Drip</span>zels</h3> <p>v<span data-version-display>1.0</span></p>
+                        </div>
+                        <p>Made with ♥ by <a href="spacedorito.xyz" target="_blank">SpaceDorito</a></p>
+                        <p>Last Updated: 4 January 2024</p>
+                    </div>
+                    <hr>
+                    <h1><u>Release Notes</u></h1>
+                    <div class="updateContent">
                         <div>
-                            <h1>Patreon</h1>
-                            <p>It's $1/month and you get nothing, it's just a way to support Dripzels. 🙃 <br> But we do have an asset packs coming up really soon!</p>
-                            <button class="ButtonPrimary">
-                                <a href="https://www.patreon.com/Dripzels" target="_blank">
-                                    <img src="images/icons/Icon_Patreon.webp" alt="Dripzels Patreon Button" loading="lazy">
-                                    Dripzels Patreon
-                                </a>
-                            </button>
+                            <h2>Summary:</h2>
+                            <p>
+                                Improved the perfomance and fixed bugs. 🔧
+                                <br>
+                            </p>
                         </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="section25">
-            <nav class="NavBar">
-                <div class="NavButton" id="NavButton-home" onclick='window.location.hash = "#home"; handleHashChange(); toggleOptionMenu("show")'>
-                    <img src="images/Logo.png" alt="Navigation Home" style="min-width: 100%; padding: 0;" draggable="false" loading="lazy">
-                </div>
-                <hr>
-
-                <div class="NavButton" id="NavButton-clothing" onclick='window.location.hash = "#clothing"; handleHashChange(); toggleOptionMenu("show")'>
-                    <img src="images/icons/Icon_Shirt.webp" alt="Navigation Clothing" draggable="false" loading="lazy" width="512px" height="512px">
-                    <p>Clothing</p>
-                </div>
-                <div class="NavButton" id="NavButton-Preview" onclick='window.location.hash = ""; handleHashChange(); toggleOptionMenu("hide")'>
-                    <img src="images/icons/Icon_3D.webp" alt="Navigation Preview" draggable="false" loading="lazy" width="512px" height="512px">
-                    <p>Preview</p>
-                </div>
-                <div class="NavButton" id="NavButton-humanoid" onclick='window.location.hash = "#humanoid"; handleHashChange(); toggleOptionMenu("show")'>
-                    <img src="images/icons/Icon_Humanoid_Blocky.webp" alt="Navigation Humanoid" draggable="false" loading="lazy" width="512px" height="512px">
-                    <p>Humanoid</p>
-                </div>
-                <div class="NavButton" id="NavButton-robux" onclick='window.location.hash = "#robux"; handleHashChange(); toggleOptionMenu("show")'>
-                    <img src="images/icons/Icon_Robux.webp" alt="Navigation Robux" draggable="false" loading="lazy">
-                    <p>Robux</p>
-                </div>
-            </nav>
-            <menu class="OptionMenu" id="OptionMenu">
-
-                <div class="OptionMenu-Page" id="OptionPage-home" style="display: none;">
-                    <div class="OptionPage-home">
-
-                        <div class="HomeTop">
-                            <div class="homeTitle">
-                                <h3><span class="titleColor">Drip</span>zels</h3> <p>v<span data-version-display>1.0</span></p>
-                            </div>
-                            <p>Made with ♥ by <a href="spacedorito.xyz" target="_blank">SpaceDorito</a></p>
+                        <div>
+                            <h2>Detailed Update log:</h2>
+                            <ul class="UpdateChangesList">
+                                <h3>What's New:</h3>
+                                <ul>
+                                    <li>New background for the 2D preview</li>
+                                    <li>Loading Icon for when the website is processing your clothing</li>
+                                    <li><a class="webLink" href="https://www.patreon.com/Dripzels" target="_blank">Patreon</a></li>
+                                </ul>
+            
+                                <br>
+            
+                                <h3>Improvements:</h3>
+                                <ul>
+                                    <li><s style="color: lightcoral;">No more black lines at the edge of the humanoid!</s> - This was causing lag in the last update and didn't seem to work all the time so I've removed it. </li>
+                                    <li>Faster loading time</li>
+                                    <li>Slightly better lighting</li>
+                                    <li>Fixed the lighting not affecting the curvy woman legs</li>
+                                    <li>Fixed layering for the shirt and pants</li>
+                                    <li>Minor Updates</li>
+                                </ul>
+            
+                                <br>
+            
+                                <h3>Bugs and removed features:</h3>
+                                <ul>
+                                    <li>Removed the loading screen</li>
+                                    <li>If you have found a bug or if you have a suggestion for an update for the website, open an "issue" on the <a href="https://github.com/SpaceDoritos/Dripzels/issues/new" target="_blank" class="webLink">GitHub page</a> of Dripzels</li>
+                                </ul>
+                            </ul>
+            
+                            <p>Happy Designing! 👋</p>
                         </div>
-
                         <hr>
-
-                        <div class="homeRelatedButtons">
-                            <button>
-                                <a href="https://www.patreon.com/Dripzels" target="_blank" class="noLinkCss">
-                                    <img src="images/icons/Icon_Patreon.webp" alt="Dripzels Patreon Button" loading="lazy">
-                                    <p>Patreon</p>
-                                </a>
-                            </button>
-                            
-                            <button>
-                                <a href="https://github.com/SpaceDoritos/Dripzels" target="_blank" class="noLinkCss">
-                                    <img src="images/icons/Icon_Github.webp" alt="Github Repo Button" loading="lazy">
-                                    <p>Github</p>
-                                </a>
-                            </button>
-                        </div>      
-                        <button class="ButtonPrimary" id="updateLogButton">
-                            <a class="noLinkCss">
-                                <span class="material-symbols-outlined">update</span>
-                                <p>Update Log</p>
-                            </a>
-                        </button>
-
-                        <hr>
-
-                        <div class="homeShop">
-                            <h1>Shop</h1>
-                            <hr>
-                            <p>(coming soon)</p>
-                        </div>
-
-                    </div>
-                </div>           
-                <div class="OptionMenu-Page" id="OptionPage-clothing" style="display: none;">
-                    <div class="OptionPage-Clothing">
-                    
-                        <div class="ClothingUploadMenu">
-                            <h3>Upload clothing</h3>
-                            <div class="uploadButton" onclick="shirtUpload.click();" id="shirtButton">
-                                <img src="images/icons/Icon_Shirt.webp" alt="Upload Roblox Shirt" draggable="false" loading="lazy">
-                                <p>Upload Shirt</p>
-                            </div>
-                            <input type="file" id="shirtUpload" accept=".webp, .jpeg, .jpg, .png, ">
-                            <div class="uploadButton" onclick="pantsUpload.click();" id="pantsButton">
-                                <img src="images/icons/Icon_Pants.webp" alt="Upload Roblox Pants" draggable="false" loading="lazy">
-                                <p>Upload Pants</p>
-                            </div>
-                            <input type="file" id="pantsUpload" accept=".webp, .jpeg, .jpg, .png">
-                        </div>
-
-                        <hr>
-
-                        <div class="LightingMenu">
-                            <h3>Lighting</h3>
+                        <div id="PatreonSection">
+                            <img id="PatreonBanner" src="images/Dripzels-Patreon.png" alt="Dripzels Patreon Banner" loading="lazy">
                             <div>
-                                <div class="LightingOption LightingOption-Selected" id="lightingOption-None"><p>No Lighting</p></div>
-                                <div class="LightingOption" id="lightingOption-Studio"><p>Studio Lighting</p></div>
-                                <div class="LightingOption" id="lightingOption-Sunset"><p>Sunset Lighting</p></div>
+                                <h1>Patreon</h1>
+                                <p>It's $1/month and you get nothing, it's just a way to support Dripzels. 🙃 <br> But we do have an asset packs coming up really soon!</p>
+                                <button class="ButtonPrimary">
+                                    <a href="https://www.patreon.com/Dripzels" target="_blank">
+                                        <img src="images/icons/Icon_Patreon.webp" alt="Dripzels Patreon Button" loading="lazy">
+                                        Dripzels Patreon
+                                    </a>
+                                </button>
                             </div>
                         </div>
-                        
                     </div>
-                </div>           
-                <div class="OptionMenu-Page" id="OptionPage-humanoid" style="display: none;">
-                    <div class="OptionPage-humanoid">
-
-                        <div class="HumanoidsMenu">
-                            <h3>Change Humanoid</h3>
-
-                            <div class="Humanoids-Option Selected-Humanoid" id="Blocky">
-                                <img src="images/icons/Icon_Humanoid_Blocky.webp" alt="Blocky Mannequin" draggable="false" loading="lazy">
-                                <p>Blocky</p>
+                </div>
+            </section>
+            <section id="section25">
+                <nav class="NavBar">
+                    <div class="NavButton" id="NavButton-home" onclick='window.location.hash = "#home"; handleHashChange(); toggleOptionMenu("show")'>
+                        <img src="images/Logo.png" alt="Navigation Home" style="min-width: 100%; padding: 0;" draggable="false" loading="lazy">
+                    </div>
+                    <hr>
+                    <div class="NavButton" id="NavButton-clothing" onclick='window.location.hash = "#clothing"; handleHashChange(); toggleOptionMenu("show")'>
+                        <img src="images/icons/Icon_Shirt.webp" alt="Navigation Clothing" draggable="false" loading="lazy" width="512px" height="512px">
+                        <p>Clothing</p>
+                    </div>
+                    <div class="NavButton" id="NavButton-Preview" onclick='window.location.hash = ""; handleHashChange(); toggleOptionMenu("hide")'>
+                        <img src="images/icons/Icon_3D.webp" alt="Navigation Preview" draggable="false" loading="lazy" width="512px" height="512px">
+                        <p>Preview</p>
+                    </div>
+                    <div class="NavButton" id="NavButton-humanoid" onclick='window.location.hash = "#humanoid"; handleHashChange(); toggleOptionMenu("show")'>
+                        <img src="images/icons/Icon_Humanoid_Blocky.webp" alt="Navigation Humanoid" draggable="false" loading="lazy" width="512px" height="512px">
+                        <p>Humanoid</p>
+                    </div>
+                    <div class="NavButton" id="NavButton-robux" onclick='window.location.hash = "#robux"; handleHashChange(); toggleOptionMenu("show")'>
+                        <img src="images/icons/Icon_Robux.webp" alt="Navigation Robux" draggable="false" loading="lazy">
+                        <p>Robux</p>
+                    </div>
+                </nav>
+                <menu class="OptionMenu" id="OptionMenu">
+                    <div class="OptionMenu-Page" id="OptionPage-home" style="display: none;">
+                        <div class="OptionPage-home">
+                            <div class="HomeTop">
+                                <div class="homeTitle">
+                                    <h3><span class="titleColor">Drip</span>zels</h3> <p>v<span data-version-display>1.0</span></p>
+                                </div>
+                                <p>Made with ♥ by <a href="spacedorito.xyz" target="_blank">SpaceDorito</a></p>
                             </div>
-
-                            <div class="Humanoids-Option" id="Woman">
-                                <img src="images/icons/Icon_Humanoid_Woman.webp" alt="Woman Mannequin" draggable="false" loading="lazy">
-                                <p>Woman</p>
+                            <hr>
+                            <div class="homeRelatedButtons">
+                                <button>
+                                    <a href="https://www.patreon.com/Dripzels" target="_blank" class="noLinkCss">
+                                        <img src="images/icons/Icon_Patreon.webp" alt="Dripzels Patreon Button" loading="lazy">
+                                        <p>Patreon</p>
+                                    </a>
+                                </button>
+            
+                                <button>
+                                    <a href="https://github.com/SpaceDoritos/Dripzels" target="_blank" class="noLinkCss">
+                                        <img src="images/icons/Icon_Github.webp" alt="Github Repo Button" loading="lazy">
+                                        <p>Github</p>
+                                    </a>
+                                </button>
                             </div>
-
-                            <div class="Humanoids-Option" id="Man">
-                                <img src="images/icons/Icon_Humanoid_Man.webp" alt="Man Mannequin" draggable="false" loading="lazy">
-                                <p>Man</p>
-                            </div>
-
-                            <div class="Humanoids-Option" id="CurvyWoman" style="margin-bottom: -50%;">
-                                <img src="images/icons/Icon_Humanoid_Curvy_Woman.webp" alt="Curvy Woman Mannequin" draggable="false" loading="lazy">
-                                <p>Curvy Woman</p>
-                            </div>
+                            <button class="ButtonPrimary" id="updateLogButton">
+                                <a class="noLinkCss">
+                                    <span class="material-symbols-outlined">update</span>
+                                    <p>Update Log</p>
+                                </a>
+                            </button>
                         </div>
-                        
-                        <hr>
-
-                        <div class="HumanoidsScale">
-                            <h3>Humanoid Scale</h3>
-                            <div class="HumanoidScale-Option">
-                                <h4>Humanoid Height</h4>
+                    </div>
+                    <div class="OptionMenu-Page" id="OptionPage-clothing" style="display: none;">
+                        <div class="OptionPage-Clothing">
+            
+                            <div class="ClothingUploadMenu">
+                                <h3>Upload clothing</h3>
+                                <div class="uploadButton" onclick="shirtUpload.click();" id="shirtButton">
+                                    <img src="images/icons/Icon_Shirt.webp" alt="Upload Roblox Shirt" draggable="false" loading="lazy">
+                                    <p>Upload Shirt</p>
+                                </div>
+                                <input type="file" id="shirtUpload" accept=".webp, .jpeg, .jpg, .png, ">
+                                <div class="uploadButton" onclick="pantsUpload.click();" id="pantsButton">
+                                    <img src="images/icons/Icon_Pants.webp" alt="Upload Roblox Pants" draggable="false" loading="lazy">
+                                    <p>Upload Pants</p>
+                                </div>
+                                <input type="file" id="pantsUpload" accept=".webp, .jpeg, .jpg, .png">
+                            </div>
+                            <hr>
+                            <div class="LightingMenu">
+                                <h3>Lighting</h3>
                                 <div>
-                                    <input type="range" min="0" max="10" value="5" class="slider" id="Scaling-Height">
-                                    <p id="bodyHeightText">0.5</p>
+                                    <div class="LightingOption LightingOption-Selected" id="lightingOption-None"><p>No Lighting</p></div>
+                                    <div class="LightingOption" id="lightingOption-Studio"><p>Studio Lighting</p></div>
+                                    <div class="LightingOption" id="lightingOption-Sunset"><p>Sunset Lighting</p></div>
                                 </div>
                             </div>
-                            <div class="HumanoidScale-Option">
-                                <h4>Humanoid Width</h4>
-                                <div>
-                                    <input type="range" min="0" max="10" value="5" class="slider" id="Scaling-Width">
-                                    <p id="bodyWidthText">0.5</p>
+            
+                        </div>
+                    </div>
+                    <div class="OptionMenu-Page" id="OptionPage-humanoid" style="display: none;">
+                        <div class="OptionPage-humanoid">
+                            <div class="HumanoidsMenu">
+                                <h3>Change Humanoid</h3>
+            
+                                <div class="container">
+            
+                                    <div class="Humanoids-Option Selected-Humanoid" id="Blocky">
+                                        <img src="images/icons/Icon_Humanoid_Blocky.webp" alt="Blocky Mannequin" draggable="false" loading="lazy">
+                                        <p>Blocky</p>
+                                    </div>
+            
+                                    <div class="Humanoids-Option" id="Woman">
+                                        <img src="images/icons/Icon_Humanoid_Woman.webp" alt="Woman Mannequin" draggable="false" loading="lazy">
+                                        <p>Woman</p>
+                                    </div>
+            
+                                    <div class="Humanoids-Option" id="Man">
+                                        <img src="images/icons/Icon_Humanoid_Man.webp" alt="Man Mannequin" draggable="false" loading="lazy">
+                                        <p>Man</p>
+                                    </div>
+            
+                                    <div class="Humanoids-Option" id="CurvyWoman">
+                                        <img src="images/icons/Icon_Humanoid_Curvy_Woman.webp" alt="Curvy Woman Mannequin" draggable="false"
+                                            loading="lazy">
+                                        <p>Curvy Woman</p>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <hr>
+                            <div class="HumanoidsScale">
+                                <h3>Humanoid Scale</h3>
+                                <div class="HumanoidScale-Option">
+                                    <h4>Humanoid Height</h4>
+                                    <div>
+                                        <input type="range" min="0" max="10" value="5" class="slider" id="Scaling-Height">
+                                        <p id="bodyHeightText">0.5</p>
+                                    </div>
+                                </div>
+                                <div class="HumanoidScale-Option">
+                                    <h4>Humanoid Width</h4>
+                                    <div>
+                                        <input type="range" min="0" max="10" value="5" class="slider" id="Scaling-Width">
+                                        <p id="bodyWidthText">0.5</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+            
+                            <div class="HumanoidMisc">
+                                <h3>Humanoid Misc</h3>
+                                <div class="HumanoidMisc-Option">
+                                    <h4>Head</h4>
+                                    <input type="checkbox" checked id="HumanoidVisibility-Head">
                                 </div>
                             </div>
                         </div>
-
-                        <hr>
-        
-                        <div class="HumanoidMisc">
-                            <h3>Humanoid Misc</h3>
-                            <div class="HumanoidMisc-Option">
-                                <h4>Head</h4>
-                                <input type="checkbox" checked id="HumanoidVisibility-Head">
-                            </div>
-                        </div>
-
                     </div>
-                </div>    
-
-                <div class="OptionMenu-Page" id="OptionPage-robux" style="display: none;">
-                    <div class="OptionPage-Robux">
-                        <h3>Robux Calculator</h3>
-                        <input type="number" inputmode="numeric" id="RobuxInput" placeholder="Robux Amount" onkeydown="if(event.key==='.' || event.key==='e'){event.preventDefault();}">
-                
-                        <div class="ConvertedValues">
-                            <div>
-                                <h4>After Tax:</h4>
-                                <h4 id="RobuxAfterTax" class="RobuxIcon">00</h4>
+                    <div class="OptionMenu-Page" id="OptionPage-robux" style="display: none;">
+                        <div class="OptionPage-Robux">
+                            <h3>Robux Calculator</h3>
+                            <input type="number" inputmode="numeric" id="RobuxInput" placeholder="Robux Amount" onkeydown="if(event.key==='.' || event.key==='e'){event.preventDefault();}">
+            
+                            <div class="ConvertedValues">
+                                <div>
+                                    <h4>After Tax:</h4>
+                                    <h4 id="RobuxAfterTax" class="RobuxIcon">00</h4>
+                                </div>
+                                <hr>
+                                <div>
+                                    <h4>Price it for:</h4>
+                                    <h4 id="ListingPrice" class="RobuxIcon">00</h4>
+                                </div>
+                                <hr>
+                                <div>
+                                    <h4>DevEx:</h4>
+                                    <h4 id="DevExUSD" class="RobuxIcon">00</h4>
+                                </div>
                             </div>
-                            <hr>
-                            <div>
-                                <h4>Price it for:</h4>
-                                <h4 id="ListingPrice" class="RobuxIcon">00</h4>
-                            </div>
-                            <hr>
-                            <div>
-                                <h4>DevEx:</h4>
-                                <h4 id="DevExUSD" class="RobuxIcon">00</h4>
-                            </div>
+                            <p>This tool calculates your post-Roblox-tax Robux, suggests the right gamepass price for your target Robux, and estimates your USD earnings if you DevEx the Robux</p>
+            
                         </div>
-
-                        <p>This tool calculates your post-Roblox-tax Robux, suggests the right gamepass price for your target Robux, and estimates your USD earnings if you DevEx the Robux</p>
-                
+                    </div>
+                </menu>
+            </section>
+            <section id="section75">
+                <img src="./images/Logo.png" alt="Dripzels. Loading Image" draggable="false" id="LoadingLogo" loading="lazy">
+                <p>Loading 3D elements, please have patience.</p>
+                <p>Is this a bug? <a href="https://github.com/SpaceDoritos/Dripzels/issues" target="_blank">Create a new issue in the Github</a> and mark it as an bug!</p>
+                <h2 id="loadingProgress">0%</h2>
+                <p class="appleWarning">For apple users, you need iOS 16.6+ for the 3D environment to load. Please make sure your OS is updated to the latest version.</p>
+                <div class="PreviewMode-2D polka" id="PreviewMode-2D">
+                    <img src="images/2DPreview.png" alt="2D Clothing Preview" id="image2D" draggable="false" loading="lazy">
+                    <div id="download2D"><h3>Download</h3></div>
+                    <p>It's a free service, please let the watermark stay. <3</p>
+                </div>
+                <div class="OverlayMenu">
+                    <div style="display: none;" class="lds-ellipsis" id="clothingLoading"><div></div><div></div><div></div><div></div></div>
+                    <div class="bottomLeft">
+                        <div class="PreviewModeToggle" id="PreviewModeToggle">
+                            <div class="PreviewModeToggle-Option selected">3D</div>
+                            <div class="PreviewModeToggle-Option">2D</div>
+                        </div>
+                        <div class="ResetButton" id="buttonReset">
+                            <img src="images/icons/Icon_Reset.webp" alt="Reset Button" draggable="false" loading="lazy">
+                        </div>
                     </div>
                 </div>
-            </menu>
-        </section>
-        <section id="section75">
-            <img src="./images/Logo.png" alt="Dripzels. Loading Image" draggable="false" id="LoadingLogo" loading="lazy">
-            <p>Loading 3D elements, please have patience.</p>
-            <p>Is this a bug? <a href="https://github.com/SpaceDoritos/Dripzels/issues" target="_blank">Create a new issue in the Github</a> and mark it as an bug!</p>
-            <h2 id="loadingProgress">0%</h2>
-            <p class="appleWarning">For apple users, you need iOS 16.6+ for the 3D environment to load. Please make sure your OS is updated to the latest version.</p>
-
-
-            <div class="PreviewMode-2D polka" id="PreviewMode-2D">
-                <img src="images/2DPreview.png" alt="2D Clothing Preview" id="image2D" draggable="false" loading="lazy">
-                <div id="download2D"><h3>Download</h3></div>
-                <p>It's a free service, please let the watermark stay. <3</p>
-            </div>
-
-            <div class="OverlayMenu">
-                <div style="display: none;" class="lds-ellipsis" id="clothingLoading"><div></div><div></div><div></div><div></div></div>
-                <div class="bottomLeft">
-                    <div class="PreviewModeToggle" id="PreviewModeToggle">
-                        <div class="PreviewModeToggle-Option selected">3D</div>
-                        <div class="PreviewModeToggle-Option">2D</div>
-                    </div>
-                    <div class="ResetButton" id="buttonReset">
-                        <img src="images/icons/Icon_Reset.webp" alt="Reset Button" draggable="false" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
         
         <!-- 📌 JavaScript Scripts -->
         <script src="js/index.js" type="module" defer></script>

@@ -8,16 +8,9 @@ import {
   MeshStandardMaterial,
   MeshBasicMaterial,
   Scene,
-  PCFSoftShadowMap,
-  LinearSRGBColorSpace,
+  SRGBColorSpace,
   Fog,
-  Vector2,
   ColorManagement,
-  PointsMaterial,
-  Points,
-  BufferGeometry,
-  BufferAttribute,
-  Vector3,
 } from "three";
 
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -34,23 +27,24 @@ export function initScene() {
 
       renderer = new WebGLRenderer({ antialias: true });
       renderer.setSize(container.clientWidth, container.clientHeight);
-      renderer.antialias = true;
       renderer.shadowMap.enabled = true;
-      renderer.outputColorSpace = LinearSRGBColorSpace;
+      // renderer.LinearSRGBColorSpace;
+      renderer.outputColorSpace = SRGBColorSpace;
+      renderer.setClearColor(0x0d0d0d, 1); // Background color
+      ColorManagement.enabled = true;
       scene = new Scene();
-      scene.fog = new Fog(0x4c4c4c, 7, 15);
+      scene.fog = new Fog(0x0d0d0d, 7, 15);
       camera = new PerspectiveCamera(
         60,
         container.clientWidth / container.clientHeight,
         0.1,
         1000
       );
-      ColorManagement.enabled = true;
 
       // Objects ⭐
 
       // Floor
-      const gridGround = new GridHelper(100, 130, 0x5f5f5f, 0x545454);
+      const gridGround = new GridHelper(100, 130, 0x212121, 0x121212);
       scene.add(gridGround);
 
       // Lights
@@ -99,7 +93,7 @@ export function initScene() {
         const model = gltf.scene;
         model.scale.set(0.3, 0.3, 0.3);
         headMaterial = new MeshStandardMaterial({
-          color: 0x696969,
+          color: 0x121212,
         });
         model.traverse(function (node) {
           if (node.isMesh) {
@@ -128,6 +122,7 @@ export function initScene() {
           `../models/textures/faces/${randNum}.webp`,
           function (texture) {
             texture.flipY = false;
+            texture.colorSpace = SRGBColorSpace;
             texture.needsUpdate = true;
           }
         );
@@ -162,6 +157,7 @@ export function initScene() {
           `../models/textures/baseShirt.png`,
           function (texture) {
             texture.flipY = false;
+            texture.colorSpace = SRGBColorSpace;
             texture.needsUpdate = true;
           }
         );
@@ -197,6 +193,7 @@ export function initScene() {
           "../models/textures/baseShirt.png",
           function (texture) {
             texture.flipY = false;
+            texture.colorSpace = SRGBColorSpace;
             texture.needsUpdate = true;
           }
         );
@@ -231,6 +228,7 @@ export function initScene() {
           "../models/textures/basePants.png",
           function (texture) {
             texture.flipY = false;
+            texture.colorSpace = SRGBColorSpace;
             texture.needsUpdate = true;
           }
         );
@@ -256,7 +254,6 @@ export function initScene() {
     );
 
     scene.add(ambientLight);
-    renderer.setClearColor(0x121212, 0); // Background color
 
     function animate() {
       // Animate
@@ -273,6 +270,12 @@ export function initScene() {
       camera.updateProjectionMatrix();
       renderer.setSize(container.clientWidth, container.clientHeight);
     });
+    // document.getElementById('bannerClose').addEventListener("click", function () {
+    //   // Resize window
+    //   camera.aspect = container.clientWidth / container.clientHeight;
+    //   camera.updateProjectionMatrix();
+    //   renderer.setSize(container.clientWidth, container.clientHeight);
+    // });
   } catch (error) {
     console.error(error); // Log the error to the console
     sendError(`Error while building the scene: <br> ${error}`)

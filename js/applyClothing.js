@@ -34,7 +34,7 @@ export function resetClothing(changed) {
     changeClothing('torso', currentTorso)
     changeClothing('legs', currentLegs)
     defaultShirt = true;
-    document.getElementById('image2D').src = "../images/2DPreview.webp"
+    document.getElementById('image2D').src = "../images/2DPreview.png"
   } catch (error) {sendError(error);}
 }
 
@@ -146,6 +146,7 @@ function changeClothing(type, clothing) {
   const textureLoader = new THREE.TextureLoader();
   const texture = textureLoader.load(clothing.src, function (texture) {
     texture.flipY = false;
+    texture.colorSpace = THREE.SRGBColorSpace;
     texture.needsUpdate = true;
   });
   switch (type) {

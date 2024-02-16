@@ -11,12 +11,12 @@
 }
 
 ::-moz-selection {
-  background-color: #C29DE7;
+  background-color: #9B89F1;
   color: #0d0d0d;
 }
 
 ::selection {
-  background-color: #C29DE7;
+  background-color: #9B89F1;
   color: #0d0d0d;
 }
 
@@ -65,7 +65,7 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 1rem;
   height: 1rem;
-  background: #C29DE7;
+  background: #9B89F1;
   border-radius: 50%;
   cursor: pointer;
   -webkit-transition: background 0.3s;
@@ -75,7 +75,7 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
-  background: #C29DE7;
+  background: #9B89F1;
   border-radius: 50%;
   cursor: pointer;
   -moz-transition: background 0.3s;
@@ -105,7 +105,7 @@ input[type=checkbox] {
   transition: background-color 0.15s;
 }
 input[type=checkbox]:checked {
-  background-color: #76519a;
+  background-color: #4d3aa7;
 }
 input[type=checkbox]::before {
   content: "";
@@ -120,7 +120,7 @@ input[type=checkbox]::before {
 }
 input[type=checkbox]:checked::before {
   transform: translateX(1.6rem);
-  background-color: #C29DE7;
+  background-color: #9B89F1;
 }
 
 input[type=number] {
@@ -331,7 +331,7 @@ button a p {
 }
 
 .ButtonPrimary {
-  background-color: #C29DE7;
+  background-color: #9B89F1;
   transition: 0.3s;
 }
 .ButtonPrimary p, .ButtonPrimary span, .ButtonPrimary a {
@@ -341,9 +341,9 @@ button a p {
   filter: brightness(0%);
 }
 .ButtonPrimary:hover {
-  background-color: #cfb1ec;
+  background-color: #aea0f4;
   transform: translateY(-0.3rem);
-  box-shadow: 0 0 3rem 0.3rem rgba(194, 157, 231, 0.7);
+  box-shadow: 0 0 3rem 0.3rem rgba(155, 137, 241, 0.7);
 }
 
 .homeTitle {
@@ -355,7 +355,7 @@ button a p {
   font-size: 2rem;
 }
 .homeTitle .titleColor {
-  color: #C29DE7;
+  color: #9B89F1;
 }
 .homeTitle p {
   font-size: 0.8rem;
@@ -432,12 +432,11 @@ svg, a, p, h1, h2, h3, h4, h5, h6 {
   font-family: Inter;
 }
 
-html, body {
+html, body, .body {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
   display: flex;
-  gap: 0.3%;
   width: 100vw;
   padding: 0;
   margin: 0;
@@ -448,24 +447,27 @@ html, body {
   background-color: black;
 }
 @media only screen and (max-width: 768px) {
-  html, body {
+  html, body, .body {
     font-size: calc(0.4em + 1vh);
     gap: 0;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1600px) {
-  html, body {
+  html, body, .body {
     font-size: calc(0.4em + 1vh);
   }
-  html #section25, body #section25 {
+  html #section25, body #section25, .body #section25 {
     min-width: 370px;
   }
-  html #section25 .NavBar p, body #section25 .NavBar p {
+  html #section25 .NavBar p, body #section25 .NavBar p, .body #section25 .NavBar p {
     font-size: 0.6rem !important;
   }
-  html button, body button {
+  html button, body button, .body button {
     font-size: 1rem;
   }
+}
+html body, body body, .body body {
+  flex-direction: column;
 }
 
 * {
@@ -640,11 +642,11 @@ html, body {
   z-index: 3;
   height: 100vh;
   height: 100dvh;
-  width: 23%;
+  max-width: 23%;
   min-width: 300px;
   display: flex;
   background-color: #0d0d0d;
-  border-radius: 0 1rem 1rem 0;
+  border-right: 1px solid rgba(207, 207, 207, 0.1);
   overflow: hidden;
 }
 #section25 .NavBar {
@@ -684,6 +686,8 @@ html, body {
   max-width: 75%;
   height: auto;
   aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: filter 0.15s;
   pointer-events: none;
   -webkit-user-select: none;
@@ -713,7 +717,7 @@ html, body {
   height: auto;
   width: 82%;
   margin: 0;
-  padding: 0;
+  padding: 0 0.5rem;
   background-color: #121212;
   overflow-x: hidden;
   overflow-y: auto;
@@ -799,7 +803,7 @@ html, body {
   margin-bottom: 0.3rem;
 }
 #section25 .OptionMenu .OptionMenu-Page .OptionPage-home .HomeTop .titleColor {
-  color: #C29DE7;
+  color: #9B89F1;
 }
 #section25 .OptionMenu .OptionMenu-Page .OptionPage-home .HomeTop p {
   font-size: 0.9rem;
@@ -925,10 +929,10 @@ html, body {
           user-select: none;
 }
 #section25 .OptionMenu .OptionMenu-Page .OptionPage-Clothing .LightingMenu .LightingOption-Selected {
-  border: 1px solid #C29DE7;
+  border: 1px solid #9B89F1;
 }
 #section25 .OptionMenu .OptionMenu-Page .OptionPage-Clothing .LightingMenu .LightingOption-Selected p {
-  color: #C29DE7 !important;
+  color: #9B89F1 !important;
 }
 #section25 .OptionMenu .OptionMenu-Page .OptionPage-humanoid {
   display: flex;
@@ -957,14 +961,20 @@ html, body {
           user-select: none;
 }
 #section25 .OptionMenu .OptionMenu-Page .OptionPage-humanoid .HumanoidsMenu {
-  margin-bottom: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  justify-content: flex-start;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+#section25 .OptionMenu .OptionMenu-Page .OptionPage-humanoid .HumanoidsMenu .container {
+  width: 100%;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.7rem;
 }
 #section25 .OptionMenu .OptionMenu-Page .OptionPage-humanoid .HumanoidsMenu .Humanoids-Option {
   display: flex;
@@ -974,6 +984,8 @@ html, body {
   background-color: #212121;
   border-radius: 1rem;
   transition: background 0.15s;
+  padding: 1rem;
+  gap: 1rem;
   flex-direction: column;
   border: 1px solid transparent;
 }
@@ -985,12 +997,15 @@ html, body {
   color: #c2c2c2;
   font-weight: 300;
 }
+#section25 .OptionMenu .OptionMenu-Page .OptionPage-humanoid .HumanoidsMenu .Humanoids-Option img {
+  width: 100%;
+}
 #section25 .OptionMenu .OptionMenu-Page .OptionPage-humanoid .HumanoidsMenu .Selected-Humanoid {
-  border: 1px solid #C29DE7;
+  border: 1px solid #9B89F1;
   transition: border 0.15s;
 }
 #section25 .OptionMenu .OptionMenu-Page .OptionPage-humanoid .HumanoidsMenu .Selected-Humanoid p {
-  color: #C29DE7;
+  color: #9B89F1;
   transition: color 0.15s;
 }
 #section25 .OptionMenu .OptionMenu-Page .OptionPage-humanoid .HumanoidsScale {
@@ -1125,7 +1140,6 @@ html, body {
   position: relative;
   flex-direction: column;
   background-color: black;
-  border-radius: 1rem 0 0 1rem;
   box-shadow: inset 0 0 3rem 1rem rgba(221, 60, 60, 0.3);
   text-align: center;
   font-weight: 200;
@@ -1155,7 +1169,6 @@ html, body {
   opacity: 0;
   transition: opacity 0.7s;
   cursor: grab;
-  border-radius: 1rem 0 0 1rem;
   background-color: #121212;
 }
 #section75 #LoadingLogo {
@@ -1176,7 +1189,6 @@ html, body {
   pointer-events: none;
   opacity: 0;
   background-color: #121212;
-  border-radius: 1rem 0 0 1rem;
 }
 #section75 .PreviewMode-2D img {
   width: 60%;
@@ -1303,6 +1315,7 @@ html, body {
   #section25 {
     z-index: 1;
     min-width: 0%;
+    max-width: 100%;
     width: 100%;
     height: 100%;
     position: absolute;
