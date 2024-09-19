@@ -1,4 +1,4 @@
-// Error 
+// Error
 function sendError(error) {
   document.getElementById("ErrorMessage").innerHTML = error;
   document.getElementById("section-Popup").style.display = 'flex';
@@ -16,7 +16,7 @@ function sendError(error) {
 
 function handleHashChange() {
   const currentHash = window.location.hash;
-  const allowedHashes = ["", "#home", "#clothing", "#humanoid", "#robux"];
+  const allowedHashes = ["#clothing", "#humanoid", "#robux"];
 
   if (allowedHashes.includes(currentHash)) {
     changePage(currentHash.substring(1));
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function changePage(page) {
   const navButtons = document.querySelectorAll(".NavButton");
   const optionPages = document.querySelectorAll(".OptionMenu-Page");
-  let pageTitle = "Dripzels | Free Roblox Clothing Preview Generator"
+  let pageTitle = "Roblox | Free Roblox Clothing Preview Generator"
 
   optionPages.forEach((page) => {
     page.style.display = "none";
@@ -64,9 +64,9 @@ function changePage(page) {
       break;
   }
     // Set the dynamic title
-    pageTitle = page.charAt(0).toUpperCase() + page.slice(1) + " | Dripzels";
+    pageTitle = page.charAt(0).toUpperCase() + page.slice(1) + " | Robofit";
     if(page == 'home' || page == ''){
-      pageTitle = "Home | Dripzels";
+      pageTitle = "Home | Robofit";
     }
     document.title = pageTitle;
 }
@@ -76,61 +76,96 @@ function changePage(page) {
 document.addEventListener("DOMContentLoaded", function () {
   const container = document.getElementById("PreviewModeToggle");
   const options = Array.from(
-    container.getElementsByClassName("PreviewModeToggle-Option")
-    );
-    
-    container.addEventListener("click", function () {
-      options.forEach((option) => {
-        option.classList.toggle("selected");
+      container.getElementsByClassName("PreviewModeToggle-Option")
+  );
+
+  container.addEventListener("click", function () {
+    options.forEach((option) => {
+      option.classList.toggle("selected");
     });
-    
+
     // Check which option is selected and log the result
     const selectedOption = options.find((option) =>
-    option.classList.contains("selected")
+        option.classList.contains("selected")
     );
     if (selectedOption) {
       const previewMode = selectedOption.textContent;
-      if (previewMode == "2D") {
-        document.getElementById("PreviewMode-2D").style.pointerEvents = "all";
-        document.querySelector("canvas").style.opacity = 0;
-        document.getElementById("PreviewMode-2D").style.opacity = 1;
-      } else {
-        document.getElementById("PreviewMode-2D").style.pointerEvents = "none";
-        document.getElementById("PreviewMode-2D").style.opacity = 0;
-        document.querySelector("canvas").style.opacity = 1;
+      const preview2DElement = document.getElementById("PreviewMode-2D");
+      const canvasElement = document.querySelector("canvas");
+
+      if (previewMode === "2D" && preview2DElement && canvasElement) {
+        // Check if the elements exist before trying to change their properties
+        preview2DElement.style.pointerEvents = "all";
+        canvasElement.style.opacity = 1;
+        preview2DElement.style.opacity = 0;
+      } else if (preview2DElement && canvasElement) {
+        preview2DElement.style.pointerEvents = "none";
+        preview2DElement.style.opacity = 0;
+        canvasElement.style.opacity = 0;
       }
     }
   });
 });
 
 // Robux Calculator 📌
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('RobuxInput').addEventListener('input', () => {
-    let robuxInput = document.getElementById('RobuxInput');
-    
-    let robuxValue = parseInt(robuxInput.value, 10);
-
-    if (!isNaN(robuxValue) && Number.isInteger(robuxValue) && robuxValue >= 0) {
-
-      // Calculate how much Robux they get after tax
-      let robuxAfterTax = Math.floor(0.7 * robuxValue).toLocaleString();
-      let listingPrice = Math.ceil(robuxValue / 0.7).toLocaleString();
-      
-      // Apply toLocaleString before calling toFixed for DevExUSD
-      let devExUSD = (robuxValue / 30000 * 105).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-      
-      // Display the results
-      document.getElementById('RobuxAfterTax').innerText = robuxAfterTax;
-      document.getElementById('ListingPrice').innerText = listingPrice;
-      document.getElementById('DevExUSD').innerText = devExUSD;
-      
-    } else {
-      document.getElementById('RobuxAfterTax').innerText = '00';
-      document.getElementById('ListingPrice').innerText = '00';
-      document.getElementById('DevExUSD').innerText = '00';
-    }
-  });
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//   const robuxInput = document.getElementById('RobuxInput');
+//   if (robuxInput) {
+//     robuxInput.addEventListener('input', () => {
+//       let robuxValue = parseInt(robuxInput.value, 10);
+//
+//       if (!isNaN(robuxValue) && Number.isInteger(robuxValue) && robuxValue >= 0) {
+//         // Calculate how much Robux they get after tax
+//         let robuxAfterTax = Math.floor(0.7 * robuxValue).toLocaleString();
+//         let listingPrice = Math.ceil(robuxValue / 0.7).toLocaleString();
+//
+//         // Apply toLocaleString before calling toFixed for DevExUSD
+//         let devExUSD = (robuxValue / 30000 * 105).toLocaleString('en-US', {
+//           minimumFractionDigits: 2,
+//           maximumFractionDigits: 2
+//         });
+//
+//         // Display the results
+//         document.getElementById('RobuxAfterTax').innerText = robuxAfterTax;
+//         document.getElementById('ListingPrice').innerText = listingPrice;
+//         document.getElementById('DevExUSD').innerText = devExUSD;
+//
+//       } else {
+//         document.getElementById('RobuxAfterTax').innerText = '00';
+//         document.getElementById('ListingPrice').innerText = '00';
+//         document.getElementById('DevExUSD').innerText = '00';
+//       }
+//     });
+//   }
+// });
+// Robux Calculator 📌
+// document.addEventListener('DOMContentLoaded', function() {
+//   document.getElementById('RobuxInput').addEventListener('input', () => {
+//     let robuxInput = document.getElementById('RobuxInput');
+//
+//     let robuxValue = parseInt(robuxInput.value, 10);
+//
+//     if (!isNaN(robuxValue) && Number.isInteger(robuxValue) && robuxValue >= 0) {
+//
+//       // Calculate how much Robux they get after tax
+//       let robuxAfterTax = Math.floor(0.7 * robuxValue).toLocaleString();
+//       let listingPrice = Math.ceil(robuxValue / 0.7).toLocaleString();
+//
+//       // Apply toLocaleString before calling toFixed for DevExUSD
+//       let devExUSD = (robuxValue / 30000 * 105).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+//
+//       // Display the results
+//       document.getElementById('RobuxAfterTax').innerText = robuxAfterTax;
+//       document.getElementById('ListingPrice').innerText = listingPrice;
+//       document.getElementById('DevExUSD').innerText = devExUSD;
+//
+//     } else {
+//       document.getElementById('RobuxAfterTax').innerText = '00';
+//       document.getElementById('ListingPrice').innerText = '00';
+//       document.getElementById('DevExUSD').innerText = '00';
+//     }
+//   });
+// });
 
 
 

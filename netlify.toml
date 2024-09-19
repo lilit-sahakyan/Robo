@@ -1,19 +1,19 @@
 [[redirects]]
-  from = "https://dripzels.spacedorito.xyz/*" 
-  to = "https://dripzels.com/:splat"   
-  status = 301 
-  force = true  
+  from = "https://dripzels.spacedorito.xyz/*"
+  to = "https://dripzels.com/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
-  from = "https://dripzels.spacedorito.com/*" 
-  to = "https://dripzels.com/:splat"   
-  status = 301 
-  force = true  
+  from = "https://dripzels.spacedorito.com/*"
+  to = "https://dripzels.com/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
-  from = "https://dripzels.netlify.app/*" 
-  to = "https://dripzels.com/:splat"   
-  status = 301 
+  from = "https://dripzels.netlify.app/*"
+  to = "https://dripzels.com/:splat"
+  status = 301
   force = true
 
 [[redirects]]

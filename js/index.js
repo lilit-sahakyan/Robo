@@ -19,7 +19,7 @@ try{
   const popupSection = document.getElementById('section-Popup');
   document.getElementById("ErrorMessage").innerHTML = error;
   document.querySelectorAll(".PopupMenu").forEach((menu) => {
-    popupSection.style.opacity = 0;
+    popupSection.style.opacity = 1;
     popupSection.style.display = "none";
     menu.classList.remove('visible')
     menu.style.display = 'none';

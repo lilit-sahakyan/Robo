@@ -80,7 +80,7 @@ document.getElementById("download2D").addEventListener("click", () => {
   // Create temporary link element
   var link = document.createElement("a");
   link.href = dataURL;
-  link.download = "2D Preview - Dripzels";
+  link.download = "2D Preview - Robofit";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

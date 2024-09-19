@@ -16,6 +16,7 @@ import {
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import {orbit, orbit2} from "./controls.js"; // Import Controls
 import { sendError } from "./index.js";
+
 // Export Objects
 export let renderer, scene, camera, ambientLight, spotLight1, spotLight2, spotLight3, spotLight4, headMesh, torsoMesh, handsMesh, legsMesh, headMaterial, torsoMaterial, handsMaterial, legsMaterial, loader = new GLTFLoader(), sceneAdded = false;
 
@@ -88,7 +89,7 @@ export function initScene() {
 
     // Floor
     loader.load(
-      "../models/floor.glb",
+      "../models/Floor.glb",
       function (gltf) {
         const model = gltf.scene;
         model.scale.set(0.3, 0.3, 0.3);
@@ -270,12 +271,7 @@ export function initScene() {
       camera.updateProjectionMatrix();
       renderer.setSize(container.clientWidth, container.clientHeight);
     });
-    // document.getElementById('bannerClose').addEventListener("click", function () {
-    //   // Resize window
-    //   camera.aspect = container.clientWidth / container.clientHeight;
-    //   camera.updateProjectionMatrix();
-    //   renderer.setSize(container.clientWidth, container.clientHeight);
-    // });
+
   } catch (error) {
     console.error(error); // Log the error to the console
     sendError(`Error while building the scene: <br> ${error}`)

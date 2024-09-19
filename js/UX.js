@@ -1,4 +1,3 @@
-import { sendError } from "./index.js";
 import { sceneAdded } from "./scene.js";
 
 document.addEventListener('DOMContentLoaded', () => {

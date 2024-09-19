@@ -7,9 +7,9 @@
 }
 
 
-$text: #cfcfcf;
-$background: #0d0d0d;
-$primary: #9B89F1;
+$text: #984040;
+$background: #2c2c2c;
+$primary: #000000;
 $secondary: #241830;
 $accent: #7515D5;
 
@@ -342,7 +342,7 @@ button{
   img{
     min-width: 25%;
     max-width: 1.5rem;
-    border-radius: 0rem;
+    border-radius: 0;
   }
   a {
     @include flexCenter();

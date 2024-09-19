@@ -1,7 +1,6 @@
 import * as THREE from "three";
 import { spotLight1, spotLight2, spotLight3, spotLight4, torsoMesh, handsMesh, legsMesh, torsoMaterial, handsMaterial, legsMaterial, scene, loader, headMesh, headMaterial,
 } from "./scene.js";
-import { defaultShirt } from "./applyClothing.js";
 
 export function setupRenderTypes() {
   const lightingOption_None = document.getElementById("lightingOption-None");
@@ -526,82 +525,6 @@ BodyTypeItems.forEach(function (BodyTypeItem) {
     changeBody(BodyTypeItem.id);
   });
 });
-
-// Body Scaling 📌
-const scalingHeight = document.getElementById("Scaling-Height");
-const bodyHeightText = document.getElementById("bodyHeightText");
-const scalingWidth = document.getElementById("Scaling-Width");
-const bodyWidthText = document.getElementById("bodyWidthText");
-
-scalingHeight.addEventListener("input", () => {
-  try{
-  const sliderValue = parseFloat(scalingHeight.value) / 10; // Map the slider value to a range of 0 to 1
-  let scaleY = 0.2 + sliderValue * 0.2; // Map 0 to 0.2 and 1 to 0.4 for the Y scale
-  scaleY = Math.round(scaleY * 100) / 100; // Round to two decimal places
-  const scale = new THREE.Vector3(torsoMesh.scale.x, scaleY, 0.3); // Create the scale vector
-
-  if (scalingHeight.value == 0) {
-    bodyHeightText.innerHTML = "0";
-  } else if (scalingHeight.value == 10) {
-    bodyHeightText.innerHTML = "1";
-  } else {
-    bodyHeightText.innerHTML = `0.${scalingHeight.value}`;
-  }
-
-  // Apply the scale to the torsoMesh
-  headMesh.scale.copy(scale);
-  torsoMesh.scale.copy(scale);
-  handsMesh.scale.copy(scale);
-  legsMesh.scale.copy(scale);
-  if (Man_torsoMesh) {
-    Man_headMesh.scale.copy(scale);
-    Man_torsoMesh.scale.copy(scale);
-    Man_handsMesh.scale.copy(scale);
-    Man_legsMesh.scale.copy(scale);
-  }
-  if (Woman_torsoMesh) {
-    Woman_headMesh.scale.copy(scale);
-    Woman_torsoMesh.scale.copy(scale);
-    Woman_handsMesh.scale.copy(scale);
-    Woman_legsMesh.scale.copy(scale);
-    Curvy_Woman_legsMesh.scale.copy(scale);
-  }
-} catch (error) {sendError(error);}
-});
-scalingWidth.addEventListener("input", () => {
-  const sliderValue = parseFloat(scalingWidth.value) / 10; 
-  let scaleX = 0.2 + sliderValue * 0.2; 
-  scaleX = Math.round(scaleX * 100) / 100; 
-  const scale = new THREE.Vector3(scaleX, torsoMesh.scale.y, 0.3);
-
-  if (scalingWidth.value == 0) {
-    bodyWidthText.innerHTML = "0";
-  } else if (scalingWidth.value == 10) {
-    bodyWidthText.innerHTML = "1";
-  } else {
-    bodyWidthText.innerHTML = `0.${scalingWidth.value}`;
-  }
-
-  // Apply the scale to the torsoMesh
-  headMesh.scale.copy(scale);
-  torsoMesh.scale.copy(scale);
-  handsMesh.scale.copy(scale);
-  legsMesh.scale.copy(scale);
-  if (Man_torsoMesh) {
-    Man_headMesh.scale.copy(scale);
-    Man_torsoMesh.scale.copy(scale);
-    Man_handsMesh.scale.copy(scale);
-    Man_legsMesh.scale.copy(scale);
-  }
-  if (Woman_torsoMesh) {
-    Woman_headMesh.scale.copy(scale);
-    Woman_torsoMesh.scale.copy(scale);
-    Woman_handsMesh.scale.copy(scale);
-    Woman_legsMesh.scale.copy(scale);
-    Curvy_Woman_legsMesh.scale.copy(scale);
-  }
-});
-
 
 // Toggle head
 document.addEventListener('DOMContentLoaded', function() {

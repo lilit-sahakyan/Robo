@@ -2,12 +2,7 @@ import {
   WebGLRenderer,
   PerspectiveCamera,
   AmbientLight,
-  TextureLoader,
-  MeshStandardMaterial,
-  MeshBasicMaterial,
   Scene,
-  LinearSRGBColorSpace,
-  Vector2,
   ColorManagement,
 } from "three";
 import * as THREE from "three";

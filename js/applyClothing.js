@@ -6,9 +6,7 @@ import { Man_handsMesh, Man_legsMesh, Man_torsoMesh, Woman_torsoMesh, Woman_hand
 
 
 // Common variables
-const shirtButton = document.getElementById("shirtButton");
 const shirtUpload = document.getElementById("shirtUpload");
-const pantsButton = document.getElementById("pantsButton");
 const pantsUpload = document.getElementById("pantsUpload");
 export let defaultShirt = true;
 export let reset = false;
@@ -29,6 +27,7 @@ export function resetClothing(changed) {
     currentHands.src = "../models/textures/baseShirt.png";
     currentLegs.src = "../models/textures/basePants.png";
     currentTorso.src = "../models/textures/baseShirt.png";
+
     // uploadHandler(currentLegs, 'pants', true);
     changeClothing('hands', currentHands)
     changeClothing('torso', currentTorso)
