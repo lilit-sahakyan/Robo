@@ -41,16 +41,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   // Version check 📌
-  const dripzelsVersion = document.head.dataset.version;
+  const robofitVersion = document.head.dataset.version;
 
   document.querySelectorAll('[data-version-display]').forEach(function(element) {
-      element.innerHTML = dripzelsVersion;
+      element.innerHTML = robofitVersion;
   });
 
   if (localStorage.getItem('clientVersion') == null) { // First visit
-    localStorage.setItem('clientVersion', dripzelsVersion);
-  } else if(localStorage.getItem('clientVersion') !== dripzelsVersion){ // Returning user
-    localStorage.setItem('clientVersion', `${dripzelsVersion}`)
+    localStorage.setItem('clientVersion', robofitVersion);
+  } else if(localStorage.getItem('clientVersion') !== robofitVersion){ // Returning user
+    localStorage.setItem('clientVersion', `${robofitVersion}`)
     openPopup('UpdateLog')
   }  
 })
